@@ -1,0 +1,1531 @@
+/* ============================================================
+   Mr. Frías Food Truck — Brand override sobre Fresheat template
+   Paleta y componentes propios. Cargado DESPUÉS de main.css.
+============================================================ */
+
+:root {
+  --mf-rojo: #C31329;
+  --mf-amarillo: #F9A600;
+  --mf-amarillo-intenso: #F9C400;
+  --mf-naranja: #EE6733;
+  --mf-blanco: #FFFFFF;
+  --mf-negro: #1E1713;
+  --mf-gris: #6A625A;
+  --mf-texto-secundario: #C9BFB5;
+  --mf-fondos-suaves: #FFF6E8;
+
+  --mf-font: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* OVERRIDE de variables del template Fresheat con paleta Mr. Frías
+     Así el header, footer y todos los componentes del template usan los colores correctos
+     SIN tener que pelear con !important en cada propiedad */
+  --theme: #C31329;        /* Era #EB0029 — rojo Mr. Frías */
+  --theme2: #F9A600;       /* Era #FC791A — amarillo Mr. Frías */
+  --title: #1E1713;        /* Era #010F1C — negro marrón Mr. Frías */
+  --bg: #1E1713;           /* Era #02142A — fondo oscuro Mr. Frías */
+  --dark: #1E1713;
+  --bg2: #FFF6E8;          /* Fondos suaves cremosos */
+}
+
+/* ---------- base ---------- */
+.mrfrias-body {
+  font-family: var(--mf-font);
+  background: var(--mf-negro);
+  color: var(--mf-blanco);
+}
+
+.mrfrias-body a {
+  text-decoration: none;
+}
+
+.mrfrias-section {
+  background: var(--mf-fondos-suaves);
+  color: var(--mf-negro);
+}
+
+.mrfrias-section--dark {
+  background: var(--mf-negro);
+  color: var(--mf-blanco);
+}
+
+.mrfrias-section--dark > .container > .section-title .mrfrias-sub,
+.mrfrias-section--dark > .container > .text-center > p,
+.mrfrias-section--dark > .container > .section-title > p {
+  color: var(--mf-texto-secundario);
+}
+
+.mrfrias-sucursal-card .mrfrias-sucursal-copy,
+.mrfrias-sucursal-card .mrfrias-tel {
+  color: #1E1713 !important;
+}
+
+.mrfrias-sucursal-card .mrfrias-tel {
+  color: #4a423a !important;
+  font-weight: 600;
+}
+
+/* ---------- tipografía: respetar la del template (Epilogue) ----------
+   Solo apagamos capitalize en TITULOS específicos para que respeten mayúsculas/minúsculas naturales del español.
+   El template usa capitalize que en inglés se ve bien pero en español le mete mayúsculas raras. */
+.mrfrias-body .title,
+.mrfrias-body .banner-content h1,
+.mrfrias-body .banner-content h2,
+.mrfrias-body .banner-content h3,
+.mrfrias-body .single-food-items h3,
+.mrfrias-body .dishes-card h3,
+.mrfrias-body .about-content h2,
+.mrfrias-body .cta-content h2,
+.mrfrias-body .cta-content h3,
+.mrfrias-body p,
+.mrfrias-body .text,
+.mrfrias-body .item-content .text {
+  text-transform: none !important;
+}
+
+/* Sub-title del title-area: mantener capitalize del template (es decorativo, mayúscula al inicio de palabra está OK) */
+
+.mrfrias-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--mf-amarillo);
+  background: rgba(195, 19, 41, 0.08);
+  border: 1px solid var(--mf-rojo);
+  padding: 0.3rem 0.8rem;
+  border-radius: 99px;
+}
+
+.mrfrias-lead {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: inherit;
+}
+
+.mrfrias-sub {
+  font-size: 1rem;
+  color: #4a423a;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.mrfrias-microcopy {
+  font-size: 0.9rem;
+  color: #4a423a;
+}
+
+.mrfrias-section--dark .mrfrias-sub,
+.mrfrias-section--dark .mrfrias-microcopy {
+  color: var(--mf-texto-secundario);
+}
+
+/* ---------- botones (sobre escribe .theme-btn del template) ---------- */
+.mrfrias-body .theme-btn,
+.theme-btn,
+.mrfrias-body a.theme-btn {
+  background: var(--mf-amarillo) !important;
+  color: #1E1713 !important;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  text-decoration: none;
+}
+
+.mrfrias-body .theme-btn:hover,
+.theme-btn:hover {
+  background: var(--mf-naranja);
+  color: var(--mf-blanco);
+  transform: translateY(-2px);
+}
+
+.mrfrias-body .theme-btn.style3 {
+  background: transparent;
+  color: var(--mf-amarillo);
+  border: 2px solid var(--mf-amarillo);
+}
+
+.mrfrias-body .theme-btn.style3:hover {
+  background: var(--mf-amarillo);
+  color: var(--mf-negro);
+}
+
+/* ---------- hero ---------- */
+.mrfrias-hero {
+  background: linear-gradient(180deg, var(--mf-negro) 0%, #2a1f1a 100%);
+  color: var(--mf-blanco);
+  padding: 8rem 0 5rem;
+}
+
+.mrfrias-hero .mrfrias-lead {
+  color: var(--mf-texto-secundario);
+}
+
+.mrfrias-hero-img {
+  max-width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- cards (especialidades) ---------- */
+.mrfrias-card {
+  background: var(--mf-blanco);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 23, 19, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.mrfrias-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(30, 23, 19, 0.15);
+}
+
+.mrfrias-card .popular-dishes-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.mrfrias-card .popular-dishes-content {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.mrfrias-card-title {
+  color: var(--mf-rojo);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+/* ---------- sucursales ---------- */
+.mrfrias-sucursal-card {
+  background: var(--mf-blanco);
+  color: var(--mf-negro);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mrfrias-sucursal-card:hover {
+  border-color: var(--mf-amarillo);
+  transform: translateY(-4px);
+}
+
+.mrfrias-sucursal-card.is-pending {
+  background: var(--mf-fondos-suaves);
+  border-color: #e6d9c4;
+}
+
+.mrfrias-sucursal-card.is-pending .mrfrias-sucursal-copy {
+  color: #1E1713;
+}
+
+.mrfrias-sucursal-head {
+  margin-bottom: 0.75rem;
+}
+
+.mrfrias-sucursal-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--mf-rojo);
+  margin: 0;
+}
+
+.mrfrias-sucursal-zona {
+  display: block;
+  font-size: 0.85rem;
+  color: #3d3530;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.15rem;
+  font-weight: 600;
+}
+
+.mrfrias-sucursal-copy {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4a423a;
+  margin: 0.75rem 0 1rem;
+}
+
+.mrfrias-wa-btn {
+  width: 100%;
+  justify-content: center;
+  background: #25D366;
+  color: var(--mf-blanco);
+}
+
+.mrfrias-wa-btn:hover {
+  background: #128C7E;
+  color: var(--mf-blanco);
+}
+
+.mrfrias-tel {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: var(--mf-gris);
+}
+
+.mrfrias-pending-badge {
+  display: inline-block;
+  background: var(--mf-negro);
+  color: var(--mf-amarillo);
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------- galería ---------- */
+.mrfrias-gallery-item {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.mrfrias-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.mrfrias-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- about ---------- */
+.mrfrias-about-img {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+/* ---------- horario ---------- */
+.mrfrias-horario-line {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--mf-negro);
+  margin: 0.25rem 0;
+}
+
+/* ---------- CTA final ---------- */
+.mrfrias-cta-final {
+  background: linear-gradient(135deg, var(--mf-rojo) 0%, var(--mf-naranja) 100%);
+  padding: 4rem 0;
+}
+
+.mrfrias-cta-final .text-white {
+  color: var(--mf-blanco) !important;
+}
+
+/* ---------- contacto ---------- */
+.mrfrias-contact-emails a {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--mf-rojo);
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+.mrfrias-contact-emails a:hover {
+  color: var(--mf-naranja);
+}
+
+/* ---------- WhatsApp flotante ---------- */
+.mrfrias-wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--mf-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.mrfrias-wa-float:hover {
+  transform: scale(1.1);
+  color: var(--mf-blanco);
+}
+
+/* ---------- footer ---------- */
+.mrfrias-footer {
+  background: var(--mf-negro);
+  color: var(--mf-texto-secundario);
+  padding: 3rem 0 1.5rem;
+  border-top: 2px solid var(--mf-rojo);
+}
+
+.mrfrias-footer-logo img {
+  max-height: 60px;
+}
+
+.mrfrias-footer-title {
+  color: var(--mf-amarillo);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.mrfrias-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mrfrias-footer-list a,
+.mrfrias-footer-text a {
+  color: var(--mf-texto-secundario);
+  transition: color 0.2s ease;
+}
+
+.mrfrias-footer-list a:hover,
+.mrfrias-footer-text a:hover {
+  color: var(--mf-amarillo);
+}
+
+.mrfrias-footer-list li {
+  margin: 0.4rem 0;
+}
+
+.mrfrias-footer-bottom {
+  border-top: 1px solid #2a1f1a;
+  padding-top: 1.25rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #b8aea3;
+}
+
+.mrfrias-powered-by {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mf-amarillo);
+  font-weight: 700;
+}
+
+/* ---------- header: respetar template + fixes ---------- */
+.header-section.header-1 .main-header-wrapper .logo-image img,
+.header-section.header-1 .header-logo img {
+  max-height: 65px;
+  width: auto;
+  height: auto;
+}
+
+/* Esconder el doble logo (nos quedamos con el del cuadrado blanco) */
+.header-section.header-1 .header-main .logo {
+  display: none !important;
+}
+
+/* Ocultar los strips decorativos black-bg/red-bg del template
+   (creaban un "empate" feo en el borde derecho) */
+.header-section .black-bg,
+.header-section .red-bg {
+  display: none !important;
+}
+
+/* Separar los 3 iconos WhatsApp del topbar con espacio cómodo */
+.mrfrias-topbar-wa a {
+  margin-left: 0.6rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mrfrias-topbar-wa a:hover {
+  color: #25D366;
+  transform: scale(1.15);
+}
+
+.mrfrias-topbar-wa a + a {
+  margin-left: 0.5rem;
+}
+
+.mrfrias-topbar-wa span {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.mrfrias-footer-logo img {
+  display: block !important;
+  max-height: 70px !important;
+  width: auto !important;
+}
+
+/* ============================================================
+   COMPONENTES FRESHEAT (overrides para Mr. Frías)
+============================================================ */
+
+/* ============================================================
+   BANNER — RESPETAR la estructura del template
+   Usa el bannerBG1_1.jpg del template (brick rojizo cálido con piso de madera)
+============================================================ */
+.banner-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-section .banner-wrapper.style1.bg-img {
+  background-image: url('../img/bg/bannerBG1_1.jpg') !important;
+  background-size: cover !important;
+  background-position: center bottom !important;
+  background-repeat: no-repeat !important;
+  background-color: #1E1713;
+  min-height: 770px;
+}
+
+/* Asegurar que TODOS los slides tengan exactamente el mismo bg size */
+.banner-section .swiper-slide,
+.banner-section .swiper-slide .banner-wrapper {
+  min-height: 770px;
+}
+
+.banner-section .banner-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-section .swiper-wrapper {
+  display: flex;
+}
+
+.banner-section .swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Sub-title del banner: texto plano naranja como el template (sin pill ni border) */
+.banner-style1 .section-title .sub-title.mrfrias-banner-sub,
+.banner-style1 .section-title .sub-title {
+  color: var(--mf-naranja) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+/* Title del banner: TODO MAYÚSCULAS como el template */
+.banner-style1 .section-title .title,
+.banner-style1 .section-title .title.mrfrias-banner-title {
+  color: var(--mf-blanco) !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  font-weight: 900;
+}
+
+/* Botón del hero — rojo rectangular como el template (no pill amarillo) */
+.banner-style1 .section-title > .theme-btn,
+.banner-style1 a.theme-btn {
+  background: var(--mf-rojo) !important;
+  color: var(--mf-blanco) !important;
+  border-radius: 4px !important;
+  padding: 0.9rem 2rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.banner-style1 a.theme-btn:hover {
+  background: var(--mf-amarillo) !important;
+  color: var(--mf-negro) !important;
+}
+
+.mrfrias-body .mrfrias-banner-text {
+  color: var(--mf-texto-secundario) !important;
+  font-size: 1.2rem !important;
+  line-height: 1.55;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.mrfrias-banner-img {
+  max-width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+              0 0 0 8px rgba(249, 166, 0, 0.15),
+              0 0 0 16px rgba(195, 19, 41, 0.1);
+}
+
+.mrfrias-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(249, 166, 0, 0.9);
+  color: var(--mf-negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.mrfrias-arrow:hover {
+  background: var(--mf-amarillo);
+}
+
+.banner-slider .arrow-prev { left: 2rem; }
+.banner-slider .arrow-next { right: 2rem; }
+
+.swiper-pagination-bullet {
+  background: var(--mf-amarillo) !important;
+  opacity: 0.4 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: var(--mf-amarillo) !important;
+}
+
+/* Sub para descripciones (NO sobrescribe .sub-title del template) */
+.mrfrias-section-sub {
+  color: #4a423a;
+  max-width: 640px;
+  margin: 1rem auto 0;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* Override del color de sub-title del template (#fc791a era muy claro) → rojo Mr. Frías para mejor contraste */
+.mrfrias-body .title-area .sub-title {
+  color: var(--mf-rojo) !important;
+  font-weight: 800;
+}
+
+/* En secciones dark, el sub-title debe ser amarillo */
+.mrfrias-sucursales-section .title-area .sub-title,
+.gallery-section .title-area .sub-title {
+  color: var(--mf-amarillo) !important;
+}
+
+/* Title (h2) — forzar blanco en sucursales (sección dark) */
+.mrfrias-sucursales-section .title-area .title,
+.gallery-section .title-area .title {
+  color: var(--mf-blanco) !important;
+}
+
+/* Best Food Items section — adaptar a fotos cuadradas (JPEG) en lugar de PNG transparentes */
+.best-food-items-section .single-food-items {
+  text-align: center;
+  padding: 1rem;
+}
+
+.best-food-items-section .single-food-items .item-thumb {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50% !important;
+  overflow: hidden;
+  border: 6px solid var(--mf-fondos-suaves);
+  box-shadow: 0 15px 35px rgba(195, 19, 41, 0.18);
+  transition: transform 0.4s ease;
+}
+
+.best-food-items-section .single-food-items:hover .item-thumb {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.best-food-items-section .single-food-items .item-thumb > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* El círculo rojo girando — overlay sobre el contenedor del item */
+.best-food-items-section .single-food-items {
+  position: relative;
+}
+
+.best-food-items-section .single-food-items .circle-shape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 260px;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.best-food-items-section .single-food-items .circle-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Forzar que el item-thumb quede arriba del circle-shape */
+.best-food-items-section .single-food-items .item-thumb {
+  position: relative;
+  z-index: 1;
+}
+
+/* Texto debajo del thumb */
+.best-food-items-section .single-food-items .item-content h3 {
+  color: var(--mf-rojo) !important;
+  text-transform: none !important;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.best-food-items-section .single-food-items .item-content a:hover h3 {
+  color: var(--mf-naranja) !important;
+}
+
+.best-food-items-section .single-food-items .item-content .text {
+  color: #4a423a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Espaciar los slides en el carrusel */
+.bestFoodItems-slider .swiper-slide {
+  padding: 2rem 0.5rem;
+}
+
+/* Pagination dots del carrusel */
+.bestFoodItems-pagination {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.bestFoodItems-pagination .swiper-pagination-bullet {
+  background: var(--mf-amarillo) !important;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px !important;
+}
+
+/* Fondo de la seccion (override el bg-color2 del template) */
+.best-food-items-section.bg-color2 {
+  background: var(--mf-fondos-suaves) !important;
+}
+
+/* Sucursales section */
+.mrfrias-sucursales-section {
+  background: var(--mf-negro);
+  color: var(--mf-blanco);
+  position: relative;
+  overflow: hidden;
+}
+
+.mrfrias-sucursales-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(249, 166, 0, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.mrfrias-sucursales-section::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(195, 19, 41, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.mrfrias-sucursales-section .title-area {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mrfrias-sucursales-section .mrfrias-section-sub {
+  color: var(--mf-texto-secundario);
+}
+
+/* Sub-title en secciones dark debe ser amarillo (contraste WCAG) */
+.mrfrias-sucursales-section .title-area .sub-title,
+.gallery-section .title-area .sub-title {
+  color: var(--mf-amarillo) !important;
+}
+
+/* About section */
+.about-us-section {
+  background: var(--mf-fondos-suaves);
+}
+
+/* Ocultar shapes del template (son samples grises 381x358 que no aplican a nuestra paleta) */
+.about-wrapper.style1 > .shape1,
+.about-wrapper.style1 > .shape2,
+.about-wrapper.style1 > .shape3,
+.about-wrapper.style1 > .shape4,
+.about-wrapper.style1 > .shape5,
+.about-wrapper.style1 > .shape6 {
+  display: none !important;
+}
+
+.mrfrias-about-img {
+  width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-section .text {
+  color: #4a423a;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-top: 1.5rem;
+}
+
+/* Gallery slider */
+.gallery-section {
+  background: var(--mf-negro);
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.gallery-section .title-area {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.gallery-section .mrfrias-section-title {
+  color: var(--mf-blanco) !important;
+}
+
+.gallery-section .mrfrias-section-sub {
+  color: var(--mf-texto-secundario);
+}
+
+.mrfrias-gallery-thumb {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.mrfrias-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mrfrias-gallery-thumb:hover img {
+  transform: scale(1.1);
+}
+
+.mrfrias-gallery-thumb .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: var(--mf-blanco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.mrfrias-gallery-thumb:hover .icon {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Horario */
+.mrfrias-horario-section {
+  background: var(--mf-fondos-suaves);
+}
+
+.mrfrias-horario-line {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mf-negro);
+  margin: 0.25rem 0;
+}
+
+/* CTA Final */
+.cta-section {
+  background: var(--mf-negro);
+}
+
+.cta-section .cta-wrapper.style1,
+.cta-section .cta-wrapper {
+  background-image: none !important;
+}
+
+.mrfrias-cta-final {
+  background: linear-gradient(135deg, var(--mf-rojo) 0%, var(--mf-naranja) 100%) !important;
+  background-image: linear-gradient(135deg, var(--mf-rojo) 0%, var(--mf-naranja) 100%) !important;
+  border-radius: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 4rem 3rem !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.mrfrias-cta-final .cta-content .mrfrias-cta-eyebrow,
+.mrfrias-cta-final .cta-content h6 {
+  display: inline-block;
+  color: var(--mf-amarillo);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.mrfrias-cta-final .cta-content .mrfrias-cta-title,
+.mrfrias-cta-final .cta-content h3 {
+  color: var(--mf-blanco) !important;
+  font-size: clamp(1.75rem, 3vw, 2.5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 1rem;
+}
+
+.mrfrias-cta-final .cta-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mrfrias-cta-final .cta-content .theme-btn {
+  background: var(--mf-blanco) !important;
+  color: var(--mf-rojo) !important;
+}
+
+.mrfrias-cta-img {
+  max-width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Contacto */
+.mrfrias-contacto-section {
+  background: var(--mf-fondos-suaves);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+  .mrfrias-hero {
+    padding: 5rem 0 3rem;
+  }
+  .mrfrias-hero-img {
+    margin-top: 2rem;
+  }
+  .mrfrias-wa-float {
+    width: 52px;
+    height: 52px;
+    font-size: 1.7rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+/* ============================================================
+   v3 — Brick backgrounds, chef-card sucursales, marquee, hero with floating ingredients
+============================================================ */
+
+/* ---------- HERO ----------
+   Para PNG transparentes (burger flotando), no aplicar fondo.
+   Para JPG sólidas, aplicar marco redondeado con borde amarillo. */
+.mrfrias-banner-img {
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+  max-height: 600px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Banner thumb: container fijo para que las 3 fotos tengan el mismo tamaño visual */
+.banner-thumb-area,
+.banner-thumb-area.is-transparent,
+.mrfrias-banner-slide .banner-thumb-area {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 520px;
+  width: 100%;
+}
+
+.banner-thumb-area .mrfrias-banner-img,
+.mrfrias-banner-slide .mrfrias-banner-img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 35px 60px rgba(0, 0, 0, 0.7));
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* El banner-wrapper.style1 del template puede traer padding/border. Eliminarlos. */
+.mrfrias-banner-slide.banner-wrapper.style1 {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ingredientes flotando alrededor del hero (decoración) */
+.mrfrias-banner-slide::before,
+.mrfrias-banner-slide::after {
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ---------- Antojos: centrar circleShape, shapes a ambos lados, botón rojo ---------- */
+.best-food-items-section .single-food-items {
+  position: relative;
+  padding-top: 2rem !important;
+}
+
+.best-food-items-section .single-food-items .circle-shape {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 260px !important;
+  height: 260px !important;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+.best-food-items-section .single-food-items .circle-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: cir36 20s linear infinite;
+}
+
+/* item-thumb sigue siendo el círculo cortado de la foto */
+.best-food-items-section .single-food-items .item-thumb {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 30px;
+}
+
+/* alinear circle-shape con el item-thumb (no con el slide entero) */
+.best-food-items-section .single-food-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.best-food-items-section .single-food-items > .circle-shape {
+  top: 250px !important;
+}
+
+/* Shapes a ambos lados (hamburguesa) */
+.best-food-items-section .best-food-wrapper {
+  position: relative;
+}
+
+.mrfrias-shape-right {
+  position: absolute;
+  right: -2%;
+  top: 35%;
+  width: 220px;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.mrfrias-shape-left {
+  position: absolute;
+  left: -2%;
+  top: 35%;
+  width: 220px;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Botón rojo central 'Pídelo Ahora' — el template aplica max-width:200px al .btn-wrapper */
+.best-food-items-section .btn-wrapper {
+  text-align: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+  margin: 3rem auto 0 !important;
+}
+
+.mrfrias-body .mrfrias-btn-red,
+.mrfrias-body a.mrfrias-btn-red {
+  background: var(--mf-rojo) !important;
+  color: var(--mf-blanco) !important;
+  font-weight: 800;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 30px rgba(195, 19, 41, 0.35);
+}
+
+.mrfrias-body .mrfrias-btn-red:hover {
+  background: var(--mf-amarillo) !important;
+  color: var(--mf-negro) !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- SUCURSALES estilo chefe-card + fondo brick ---------- */
+.mrfrias-sucursales-brick {
+  background-image:
+    linear-gradient(rgba(30, 23, 19, 0.85), rgba(30, 23, 19, 0.85)),
+    url('../img/mrfrias/nuevas/bg-brick-wall.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.mrfrias-sucursales-brick .title-area {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mrfrias-sub-light {
+  color: var(--mf-texto-secundario) !important;
+}
+
+.mrfrias-sucursal-card-v2 {
+  background: var(--mf-blanco);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mrfrias-sucursal-card-v2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(249, 166, 0, 0.4);
+}
+
+.mrfrias-sucursal-card-v2 .chefe-thumb {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mrfrias-sucursal-card-v2 .chefe-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mrfrias-sucursal-card-v2:hover .chefe-thumb img {
+  transform: scale(1.08);
+}
+
+.mrfrias-sucursal-info {
+  background: var(--mf-fondos-suaves);
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #e8dcc4;
+}
+
+.mrfrias-sucursal-zona-v2 {
+  color: var(--mf-gris);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.mrfrias-sucursal-tel-v2 {
+  color: #0a6e3f;
+  font-weight: 700;
+  margin: 0.3rem 0 0;
+  font-size: 1.05rem;
+}
+
+.mrfrias-sucursal-card-v2 .chefe-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mrfrias-sucursal-name-v2 {
+  color: var(--mf-rojo);
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+  text-transform: none !important;
+}
+
+/* Botón "Haz tu pedido aquí" — el template chefe-card lo hace circular. Override: rectangular pill */
+.mrfrias-body .mrfrias-pedido-btn,
+.mrfrias-body a.mrfrias-pedido-btn,
+.mrfrias-sucursal-card-v2 .chefe-content a.theme-btn.mrfrias-pedido-btn {
+  background: var(--mf-rojo) !important;
+  color: var(--mf-blanco) !important;
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 220px;
+  height: auto !important;
+  padding: 0.9rem 1.75rem !important;
+  border-radius: 999px !important;
+  position: static !important;
+  transform: none !important;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.mrfrias-body .mrfrias-pedido-btn:hover,
+.mrfrias-sucursal-card-v2 .chefe-content a.theme-btn.mrfrias-pedido-btn:hover {
+  background: var(--mf-amarillo) !important;
+  color: var(--mf-negro) !important;
+}
+
+/* El chefe-content debe permitir el flow normal del botón */
+.mrfrias-sucursal-card-v2 .chefe-content {
+  position: static !important;
+  text-align: center;
+}
+
+/* ---------- ACERCA DE NOSOTROS — 2 col foto rectangular + texto bold + marquee ghost ---------- */
+.mrfrias-acerca-section {
+  background: var(--mf-negro);
+  color: var(--mf-blanco);
+  padding: 6rem 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mrfrias-acerca-img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.mrfrias-acerca-title {
+  color: var(--mf-naranja);
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.mrfrias-acerca-body p {
+  color: var(--mf-blanco);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.mrfrias-acerca-body strong {
+  color: var(--mf-blanco);
+  font-weight: 700;
+}
+
+/* Marquee fantasma — texto enorme semi-transparente abajo */
+.mrfrias-marquee-ghost {
+  margin-top: 4rem;
+  padding: 2.5rem 0;
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+}
+
+.mrfrias-marquee-ghost-inner {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 2rem;
+  animation: mrfrias-ghost-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.mrfrias-marquee-ghost-inner span {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+@keyframes mrfrias-ghost-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- SUCURSAL CARD V3 (sin foto, con silueta) ---------- */
+.mrfrias-sucursal-card-v3 {
+  background: var(--mf-blanco);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.mrfrias-sucursal-card-v3:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(249, 166, 0, 0.45);
+}
+
+.mrfrias-sucursal-silueta {
+  position: relative;
+  background: linear-gradient(180deg, var(--mf-rojo) 0%, var(--mf-naranja) 100%);
+  color: linear-gradient(180deg, var(--mf-rojo) 0%, var(--mf-naranja) 100%);
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mrfrias-sucursal-silueta svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--mf-rojo);
+  fill: var(--mf-rojo);
+}
+
+.mrfrias-sucursal-pin {
+  position: relative;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--mf-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--mf-rojo);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border: 3px solid var(--mf-amarillo);
+}
+
+/* ---------- HISTORIA estilo testimonial + marquee (LEGACY, no usado en v3) ---------- */
+.mrfrias-historia-section.bg-color3 {
+  background: var(--mf-negro) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.mrfrias-historia-section .testimonial-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.mrfrias-historia-thumb {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 12px solid var(--mf-amarillo);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.mrfrias-historia-thumb::before {
+  content: '';
+  position: absolute;
+  inset: -25px;
+  border: 2px dashed var(--mf-rojo);
+  border-radius: 50%;
+  animation: cir36 30s linear infinite;
+  pointer-events: none;
+}
+
+.mrfrias-mesa-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mrfrias-historia-text {
+  color: var(--mf-texto-secundario) !important;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.mrfrias-historia-section .title-area .sub-title {
+  color: var(--mf-amarillo) !important;
+}
+
+/* Marquee derecha → izquierda con platos en MAYÚSCULAS */
+.mrfrias-marquee {
+  background: var(--mf-rojo);
+  padding: 1.5rem 0 !important;
+  overflow: hidden;
+  border-top: 4px solid var(--mf-amarillo);
+  border-bottom: 4px solid var(--mf-amarillo);
+}
+
+.mrfrias-marquee .marquee-inner {
+  display: flex;
+  animation: mrfrias-scroll-left 40s linear infinite;
+  white-space: nowrap;
+}
+
+.mrfrias-marquee .marqee-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0;
+}
+
+.mrfrias-marquee .marquee-item {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.mrfrias-marquee .text-slider.text-style {
+  color: var(--mf-blanco);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+}
+
+.mrfrias-marquee .text-slider:not(.text-style) {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--mf-amarillo);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes mrfrias-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- GALERÍA con fondo brick ---------- */
+.mrfrias-gallery-brick {
+  background-image:
+    linear-gradient(rgba(30, 23, 19, 0.7), rgba(30, 23, 19, 0.7)),
+    url('../img/mrfrias/nuevas/bg-brick-floor.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* ---------- CTA Final con fondo brick + hot dog ---------- */
+.mrfrias-cta-brick {
+  background-image:
+    linear-gradient(rgba(30, 23, 19, 0.5), rgba(30, 23, 19, 0.5)),
+    url('../img/mrfrias/nuevas/bg-brick-wall.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.mrfrias-cta-brick .mrfrias-cta-final {
+  background: linear-gradient(135deg, rgba(195, 19, 41, 0.92) 0%, rgba(238, 103, 51, 0.92) 100%) !important;
+  background-image: linear-gradient(135deg, rgba(195, 19, 41, 0.92) 0%, rgba(238, 103, 51, 0.92) 100%) !important;
+  backdrop-filter: blur(8px);
+}
+
+.mrfrias-cta-img {
+  max-width: 100%;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+/* cta-thumb sin fondo blanco — el hot dog transparente se monta sobre el gradient */
+.mrfrias-cta-brick .cta-thumb {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  padding: 1rem;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Si el template aplica un .cta-thumb::before o background a algún padre directo */
+.mrfrias-cta-brick .cta-thumb *,
+.mrfrias-cta-brick .cta-thumb {
+  background-color: transparent !important;
+}
+
+.mrfrias-cta-brick .col-xl-6 {
+  background: transparent !important;
+}
+

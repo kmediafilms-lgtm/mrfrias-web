@@ -1,0 +1,80 @@
+{
+  "sucursales": [
+    {
+      "id": "nuevo-arraijan",
+      "nombre": "Nuevo Arraiján",
+      "zona": "Panamá Oeste",
+      "telefono_visible": "6571-6825",
+      "whatsapp_e164": "50765716825",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de Nuevo Arraiján.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Pide en Nuevo Arraiján.\nSalchipapas, hot dogs, hamburguesas y más, directo desde tu sucursal."
+    },
+    {
+      "id": "nuevo-chorrillo",
+      "nombre": "Nuevo Chorrillo",
+      "zona": "Panamá Oeste",
+      "telefono_visible": "6405-1426",
+      "whatsapp_e164": "50764051426",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de Nuevo Chorrillo.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Pide en Nuevo Chorrillo.\nEl spot para salir del hambre sin pensarlo demasiado."
+    },
+    {
+      "id": "costa-verde",
+      "nombre": "Costa Verde",
+      "zona": "La Chorrera",
+      "telefono_visible": "6197-6274",
+      "whatsapp_e164": "50761976274",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de Costa Verde.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Pide en Costa Verde.\nTu próxima salchipapa puede estar a un WhatsApp."
+    },
+    {
+      "id": "calle-50",
+      "nombre": "Calle 50",
+      "zona": "Ciudad de Panamá",
+      "telefono_visible": "6659-8463",
+      "whatsapp_e164": "50766598463",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de Calle 50.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Mr. Frías llegó a Calle 50.\nEl antojo no perdona en Ciudad Panamá."
+    },
+    {
+      "id": "la-mitra",
+      "nombre": "La Mitra",
+      "zona": "Panamá Oeste",
+      "telefono_visible": "6365-8894",
+      "whatsapp_e164": "50763658894",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de La Mitra.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Pide en La Mitra.\nComida rápida con sabor fuerte y pedido directo."
+    },
+    {
+      "id": "arraijan-cabecera",
+      "nombre": "Arraiján Cabecera",
+      "zona": "Panamá Oeste",
+      "telefono_visible": "6591-3124",
+      "whatsapp_e164": "50765913124",
+      "mensaje_prellenado": "Hola, quiero hacer un pedido para retirar en la sucursal de Arraiján Cabecera.",
+      "maps_url": null,
+      "horario_propio": null,
+      "estado": "activo",
+      "copy_card": "Pide en Arraiján Cabecera.\nEl antojo se resuelve cerca, rápido y por WhatsApp."
+    }
+  ],
+  "_TODOS": [
+    "Pedir links de Google Maps por sucursal para schema LocalBusiness",
+    "Confirmar si horario general aplica a todas o cada una tiene el suyo"
+  ]
+}

@@ -1,0 +1,23 @@
+.DS_Store
+node_modules/
+.firecrawl/
+*.log
+
+# Archivos generados
+index.html
+
+# Secrets — NUNCA commitear
+.env
+.env.local
+.dev.vars
+
+# Wrangler cache
+.wrangler/
+
+# IDE
+.vscode/
+.idea/
+
+# Reportes locales (no necesarios en repo)
+reports/
+screenshots/

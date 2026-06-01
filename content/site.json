@@ -1,0 +1,97 @@
+{
+  "brand": {
+    "name": "Mr. Frías Food Truck",
+    "tagline_corto": "El spot de los antojos",
+    "tagline_largo": "Street food panameño para cuando el antojo no perdona."
+  },
+  "seo": {
+    "lang": "es-PA",
+    "title": "Mr. Frías Food Truck | Salchipapas, hot dogs y comida rápida en Panamá",
+    "description": "Pide salchipapas, hot dogs, hamburguesas, alitas y más en Mr. Frías Food Truck. Elige tu sucursal y ordena directo por WhatsApp.",
+    "og_image": "assets/img/og.jpg"
+  },
+  "nav": [
+    { "label": "Inicio", "anchor": "#home" },
+    { "label": "Antojos", "anchor": "#antojos" },
+    { "label": "Sucursales", "anchor": "#sucursales" },
+    { "label": "Galería", "anchor": "#galeria" },
+    { "label": "Horario", "anchor": "#horario" },
+    { "label": "Contacto", "anchor": "#contacto" }
+  ],
+  "cta_header": {
+    "label": "Pedir por WhatsApp",
+    "anchor": "#sucursales"
+  },
+  "hero": {
+    "h1": "Street food panameño para cuando el antojo no perdona.",
+    "subtitle": "Salchipapas, hot dogs, hamburguesas, alitas y más. Elige tu sucursal y pide directo por WhatsApp.",
+    "cta_primary": { "label": "Pedir ahora", "anchor": "#sucursales" },
+    "cta_secondary": { "label": "Ver sucursales", "anchor": "#sucursales" },
+    "microcopy": "Selecciona tu sucursal, envía tu pedido y retira cuando esté listo."
+  },
+  "especialidades": {
+    "title": "Nuestros antojos más pedidos",
+    "subtitle": "De la salchipapa al hot dog, aquí todo viene cargado, sabroso y listo para resolver el hambre."
+  },
+  "sucursales_section": {
+    "title": "Sucursales cerca de ti",
+    "subtitle": "Selecciona dónde quieres pedir y escríbenos directo. Fácil, rápido y sin vueltas.",
+    "microcopy": "Pedidos sujetos a disponibilidad y horario de cada sucursal."
+  },
+  "about": {
+    "title": "Acerca de nosotros",
+    "body_html": "<p><strong>Mr. Frías Food Truck</strong> nace de un sueño emprendedor: crear comida rápida con sabor, personalidad y un toque diferente. Lo que empezó como una idea se convirtió en un concepto de street food panameño pensado para quienes buscan resolver un antojo con productos de calidad, buena sazón y una experiencia cercana.</p><p>Nuestras especialidades incluyen <strong>salchipapas, alitas, hot dogs, hamburguesas, quesadillas, wraps y deditos de pollo</strong> para los pequeños de la casa. Cada receta está preparada con dedicación, desde las opciones clásicas hasta combinaciones más atrevidas como la salchipapa con camarones al ajillo.</p><p>Impulsado por un chef panameño, <strong>Mr. Frías Food Truck</strong> combina pasión por la cocina, rapidez y sabor en cada pedido. Más que vender comida, queremos ser ese spot donde el antojo se resuelve con calidad, cariño y mucho corazón.</p>"
+  },
+  "galeria": {
+    "title": "Mira lo que te espera",
+    "subtitle": "Fotos reales de nuestros antojos, locales y momentos Mr. Frías.",
+    "cta": { "label": "Pedir algo así", "anchor": "#sucursales" }
+  },
+  "horario": {
+    "title": "Horario",
+    "lineas": [
+      "Domingo a miércoles: 4:30 p.m. a 11:00 p.m.",
+      "Jueves a sábado: 4:30 p.m. a 12:00 a.m."
+    ],
+    "nota_interna": "TODO: validar si este horario aplica para todas las sucursales."
+  },
+  "cta_final": {
+    "title": "¿Ya sabes qué vas a pedir?",
+    "body": "Elige tu sucursal y escríbenos por WhatsApp. El antojo no se deja esperando.",
+    "cta": { "label": "Pedir por WhatsApp", "anchor": "#sucursales" }
+  },
+  "contacto": {
+    "title": "Contacto",
+    "emails": [
+      "pedido@mrfriasfoodtruck.com",
+      "robertfrias1995@gmail.com"
+    ],
+    "redes": {
+      "instagram": "https://www.instagram.com/mr.friasfoodtruck/",
+      "facebook": "https://www.instagram.com/mr.friasfoodtruck/",
+      "tiktok": ""
+    },
+    "nota_interna": "TODO: pedirle a Robert los handles reales de redes y validar email institucional."
+  },
+  "footer": {
+    "copyright": "© 2026 Mr. Frías Food Truck. Todos los derechos reservados.",
+    "powered_by": "Powered by WE.DO Workspace",
+    "credit_oculto": "Rebuild por k.mediafilms"
+  },
+  "whatsapp_messages": {
+    "general": "Hola, quiero hacer un pedido en Mr. Frías.",
+    "por_sucursal": "Hola, quiero hacer un pedido para retirar en la sucursal de {sucursal}.",
+    "menu_consulta": "Hola, quiero consultar el menú disponible de hoy."
+  },
+  "colors": {
+    "rojo_fuego": "#C31329",
+    "amarillo": "#F9A600",
+    "amarillo_intenso": "#F9C400",
+    "naranja_fuego": "#EE6733",
+    "blanco": "#FFFFFF",
+    "negro_marron": "#1E1713",
+    "gris_calido": "#6A625A",
+    "texto_secundario": "#C9BFB5",
+    "fondos_suaves": "#FFF6E8"
+  }
+}

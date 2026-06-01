@@ -1,0 +1,37 @@
+# Mr. Frías Food Truck
+
+> Street food panameño para cuando el antojo no perdona. Salchipapas, hot dogs, hamburguesas, alitas y más. Comida rápida con sabor de calle, pedido directo por WhatsApp según tu sucursal.
+
+## Sobre el negocio
+
+Mr. Frías Food Truck es una marca de comida rápida con 6 sucursales en Panamá Oeste y Ciudad de Panamá. Especialidad: salchipapas. Pedidos directos por WhatsApp por sucursal.
+
+## Sucursales
+
+- [Nuevo Arraiján — WhatsApp 6571-6825](https://wa.me/50765716825)
+- [Nuevo Chorrillo — WhatsApp 6405-1426](https://wa.me/50764051426)
+- [Costa Verde — WhatsApp 6197-6274](https://wa.me/50761976274)
+- [Calle 50 (Ciudad de Panamá) — WhatsApp 6659-8463](https://wa.me/50766598463)
+- [La Mitra — WhatsApp 6365-8894](https://wa.me/50763658894)
+- [Arraiján Cabecera — WhatsApp 6591-3124](https://wa.me/50765913124)
+
+## Menú
+
+- Salchipapas poderosas
+- Hot dogs de calle
+- Hamburguesas con flow
+- Alitas para compartir
+- Quesadillas cargadas
+- Wraps para el antojo
+- Deditos para los pequeños
+
+## Horario
+
+- Domingo a miércoles: 4:30 p.m. a 11:00 p.m.
+- Jueves a sábado: 4:30 p.m. a 12:00 a.m.
+
+## Enlaces
+
+- [Sitio web](https://mrfrias-demo.pages.dev/)
+- [Pedir en cualquier sucursal](https://mrfrias-demo.pages.dev/#sucursales)
+- [Ver galería](https://mrfrias-demo.pages.dev/#galeria)

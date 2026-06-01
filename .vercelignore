@@ -1,0 +1,8 @@
+*.php
+partials/
+build.mjs
+config.php
+index-fresheat-original.php
+content/
+.DS_Store
+node_modules/
