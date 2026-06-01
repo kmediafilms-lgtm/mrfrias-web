@@ -1,0 +1,160 @@
+# Sveltia CMS — panel de edición para Mr. Frías Food Truck
+# Edita los archivos /content/*.json y la carpeta de imágenes desde una UI web
+
+backend:
+  name: github
+  repo: kmediafilms-lgtm/mrfrias-web
+  branch: main
+  # OAuth proxy: Sveltia ofrece uno gratis. Para producción
+  # se recomienda crear uno propio en Cloudflare Pages Functions.
+  base_url: https://auth.sveltia.dev
+  auth_endpoint: oauth/authorize
+
+site_url: https://mrfrias-demo.pages.dev
+display_url: https://mrfrias-demo.pages.dev
+logo_url: https://mrfrias-demo.pages.dev/assets/img/mrfrias/logo.png
+
+media_folder: "assets/img/mrfrias/nuevas"
+public_folder: "/assets/img/mrfrias/nuevas"
+
+locale: es
+
+collections:
+  # =============================================
+  # 1. CONTENIDO GENERAL del sitio (site.json)
+  # =============================================
+  - name: "site"
+    label: "🏠 Contenido general"
+    files:
+      - file: "content/site.json"
+        label: "Contenido del sitio"
+        name: "site"
+        fields:
+          - { label: "Tagline corto", name: ["brand", "tagline_corto"], widget: "string" }
+          - { label: "Tagline largo", name: ["brand", "tagline_largo"], widget: "string" }
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Title (máx 60 chars)", name: "title", widget: "string" }
+              - { label: "Meta description (máx 160 chars)", name: "description", widget: "text" }
+          - label: "Hero (banner principal)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Título H1", name: "h1", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Microcopy debajo del botón", name: "microcopy", widget: "string" }
+          - label: "Especialidades — sección antojos"
+            name: "especialidades"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - label: "Sucursales — encabezado de la sección"
+            name: "sucursales_section"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Microcopy", name: "microcopy", widget: "string" }
+          - label: "Acerca de Nosotros"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Cuerpo (HTML permite negritas)", name: "body_html", widget: "text" }
+          - label: "Galería"
+            name: "galeria"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - label: "Horario"
+            name: "horario"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Líneas de horario (una por línea)", name: "lineas", widget: "list", field: { label: "Línea", name: "linea", widget: "string" } }
+          - label: "CTA Final"
+            name: "cta_final"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Cuerpo", name: "body", widget: "text" }
+          - label: "Contacto"
+            name: "contacto"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Emails", name: "emails", widget: "list", field: { label: "Email", name: "email", widget: "string" } }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - { label: "Powered by", name: "powered_by", widget: "string" }
+
+  # =============================================
+  # 2. SUCURSALES (sucursales.json)
+  # =============================================
+  - name: "sucursales"
+    label: "📍 Sucursales"
+    files:
+      - file: "content/sucursales.json"
+        label: "Lista de sucursales"
+        name: "sucursales"
+        fields:
+          - label: "Sucursales"
+            name: "sucursales"
+            widget: "list"
+            label_singular: "Sucursal"
+            fields:
+              - { label: "ID (slug único, sin espacios)", name: "id", widget: "string" }
+              - { label: "Nombre visible", name: "nombre", widget: "string" }
+              - { label: "Zona", name: "zona", widget: "string" }
+              - { label: "Teléfono (formato 6571-6825)", name: "telefono_visible", widget: "string", required: false }
+              - { label: "WhatsApp E.164 (formato 50765716825)", name: "whatsapp_e164", widget: "string", required: false }
+              - { label: "Mensaje prellenado del WhatsApp", name: "mensaje_prellenado", widget: "text" }
+              - { label: "Google Maps URL", name: "maps_url", widget: "string", required: false }
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options: ["activo", "pendiente_validar_numero", "cerrado"]
+                default: "activo"
+              - { label: "Copy de la card (2-3 líneas)", name: "copy_card", widget: "text" }
+
+  # =============================================
+  # 3. MENÚ (menu.json)
+  # =============================================
+  - name: "menu"
+    label: "🍔 Menú de antojos"
+    files:
+      - file: "content/menu.json"
+        label: "Catálogo de antojos"
+        name: "menu"
+        fields:
+          - label: "Categorías"
+            name: "categorias"
+            widget: "list"
+            label_singular: "Antojo"
+            fields:
+              - { label: "ID (slug)", name: "id", widget: "string" }
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Descripción corta", name: "descripcion", widget: "text" }
+              - { label: "Imagen base (nombre sin extensión)", name: "imagen_base", widget: "string", hint: "Nombre del archivo SIN .800x725.jpeg al final. Las fotos van en /assets/img/mrfrias/" }
+              - { label: "Destacado en home", name: "destacado", widget: "boolean", default: false }
+
+  # =============================================
+  # 4. IMÁGENES — subir/eliminar fotos
+  # =============================================
+  - name: "imagenes"
+    label: "🖼️ Imágenes del sitio"
+    folder: "assets/img/mrfrias/nuevas"
+    create: true
+    extension: "json"
+    format: "json"
+    summary: "{{filename}}"
+    fields:
+      - { label: "Imagen", name: "imagen", widget: "image" }
+      - { label: "Notas (opcional)", name: "notas", widget: "string", required: false }
