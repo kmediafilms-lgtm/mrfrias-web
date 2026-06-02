@@ -222,57 +222,32 @@ const html = `<!DOCTYPE html>
 </div>
 <div class="offcanvas__overlay"></div>
 
-<!-- HEADER — estructura REAL Fresheat: topbar rojo + logo en cuadrado blanco + nav azul -->
-<header class="header-section header-1">
-  <div class="black-bg"></div>
-  <div class="red-bg"></div>
-  <div class="container-fluid">
-    <div class="main-header-wrapper">
-      <div class="logo-image">
-        <a href="#home">
-          <img src="assets/img/mrfrias/logo.png" alt="Mr. Frías Food Truck">
-        </a>
-      </div>
-      <div class="main-header-items">
-        <div class="header-top-wrapper">
-          <span><i class="fa-regular fa-clock"></i> ${h(SITE.horario.lineas[0])}</span>
-          <div class="social-icon mrfrias-topbar-wa d-flex align-items-center">
-            <span class="me-2">Pedidos:</span>
-            ${activas.slice(0, 3).map(s => `<a href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener" title="${h(s.nombre)} ${h(s.telefono_visible)}" aria-label="WhatsApp ${h(s.nombre)}"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>`).join('')}
-          </div>
-        </div>
-        <div id="header-sticky" class="header-1">
-          <div class="mega-menu-wrapper">
-            <div class="header-main">
-              <div class="logo">
-                <a href="#home" class="header-logo">
-                  <img src="assets/img/mrfrias/logo.png" alt="Mr. Frías Food Truck">
-                </a>
-              </div>
-              <div class="header-left">
-                <div class="mean__menu-wrapper">
-                  <div class="main-menu">
-                    <nav id="mobile-menu">
-                      <ul>
-                        ${SITE.nav.map(n => `<li><a href="${h(n.anchor)}">${h(n.label)}</a></li>`).join('')}
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-              <div class="header-right d-flex justify-content-end align-items-center">
-                <a class="theme-btn" href="#sucursales">${h(SITE.cta_header.label)} <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                <div class="header__hamburger d-xl-none my-auto ms-3">
-                  <div class="sidebar__toggle"><i class="fas fa-bars"></i></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- HEADER — barra traslúcida negra, logo izquierda, nav centrado -->
+<header class="mrfrias-header" id="mrfrias-header">
+  <div class="mrfrias-header-inner">
+    <!-- Logo -->
+    <a href="#home" class="mrfrias-header-logo">
+      <img src="assets/img/mrfrias/logo.png" alt="Mr. Frías Food Truck">
+    </a>
+    <!-- Nav centrado desktop -->
+    <nav class="mrfrias-header-nav" id="mrfrias-nav">
+      <ul>
+        ${SITE.nav.map(n => `<li><a href="${h(n.anchor)}">${h(n.label)}</a></li>`).join('')}
+      </ul>
+    </nav>
+    <!-- Hamburger mobile -->
+    <button class="mrfrias-hamburger" id="mrfrias-hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- Nav mobile desplegable -->
+<div class="mrfrias-mobile-nav" id="mrfrias-mobile-nav">
+  <ul>
+    ${SITE.nav.map(n => `<li><a href="${h(n.anchor)}">${h(n.label)}</a></li>`).join('')}
+  </ul>
+</div>
 
 <main>
 
@@ -504,7 +479,7 @@ const html = `<!DOCTYPE html>
 </main>
 
 <!-- FOOTER -->
-<footer class="mrfrias-footer" style="position:relative;overflow:hidden;">
+<footer class="mrfrias-footer" id="contacto" style="position:relative;overflow:hidden;">
   <img src="assets/img/shape/footerShape1_1.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape1" aria-hidden="true">
   <img src="assets/img/shape/footerShape1_2.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape2" aria-hidden="true">
   <img src="assets/img/shape/footerShape1_3.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape3" aria-hidden="true">
@@ -636,6 +611,29 @@ ${JSON.stringify({
 
   if (document.readyState === 'complete') initMrFrias();
   else window.addEventListener('load', initMrFrias);
+
+  // Header: scroll solid + hamburger mobile
+  (function() {
+    var header = document.getElementById('mrfrias-header');
+    var hamburger = document.getElementById('mrfrias-hamburger');
+    var mobileNav = document.getElementById('mrfrias-mobile-nav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 40) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    });
+    if (hamburger) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open');
+      });
+      mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          hamburger.classList.remove('is-open');
+          mobileNav.classList.remove('is-open');
+        });
+      });
+    }
+  })();
 </script>
 
 </body>

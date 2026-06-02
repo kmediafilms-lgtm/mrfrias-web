@@ -430,48 +430,145 @@
   font-weight: 700;
 }
 
-/* ---------- header: respetar template + fixes ---------- */
-.header-section.header-1 .main-header-wrapper .logo-image img,
-.header-section.header-1 .header-logo img {
-  max-height: 65px;
-  width: auto;
-  height: auto;
+/* ---------- HEADER — barra traslúcida negra ---------- */
+.mrfrias-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(8, 4, 2, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Esconder el doble logo (nos quedamos con el del cuadrado blanco) */
-.header-section.header-1 .header-main .logo {
-  display: none !important;
+.mrfrias-header.is-scrolled {
+  background: rgba(6, 3, 1, 0.94);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Ocultar los strips decorativos black-bg/red-bg del template
-   (creaban un "empate" feo en el borde derecho) */
-.header-section .black-bg,
-.header-section .red-bg {
-  display: none !important;
-}
-
-/* Separar los 3 iconos WhatsApp del topbar con espacio cómodo */
-.mrfrias-topbar-wa a {
-  margin-left: 0.6rem;
-  color: #fff;
-  font-size: 1rem;
-  transition: transform 0.2s ease, color 0.2s ease;
-  display: inline-flex;
+.mrfrias-header-inner {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0.6rem 2rem;
+  position: relative;
 }
 
-.mrfrias-topbar-wa a:hover {
-  color: #25D366;
-  transform: scale(1.15);
+/* Logo */
+.mrfrias-header-logo img {
+  height: 54px;
+  width: auto;
+  display: block;
 }
 
-.mrfrias-topbar-wa a + a {
-  margin-left: 0.5rem;
+/* Nav centrado */
+.mrfrias-header-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.mrfrias-topbar-wa span {
-  color: #fff;
+.mrfrias-header-nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mrfrias-header-nav a {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
   font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.mrfrias-header-nav a:hover {
+  color: var(--mf-amarillo);
+}
+
+/* Hamburger mobile */
+.mrfrias-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10001;
+}
+
+.mrfrias-hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.mrfrias-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mrfrias-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.mrfrias-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav desplegable */
+.mrfrias-mobile-nav {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: rgba(6, 3, 1, 0.97);
+  z-index: 9998;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+
+.mrfrias-mobile-nav.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mrfrias-mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mrfrias-mobile-nav a {
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mrfrias-mobile-nav a:hover { color: var(--mf-amarillo); }
+
+/* Compensar el header fijo en el body */
+body.mrfrias-body { padding-top: 70px; }
+
+@media (max-width: 991px) {
+  .mrfrias-header-nav { display: none; }
+  .mrfrias-hamburger { display: flex; }
+  .mrfrias-mobile-nav { display: block; }
 }
 
 .mrfrias-footer-logo img {
