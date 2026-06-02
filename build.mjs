@@ -331,7 +331,7 @@ const html = `<!DOCTYPE html>
 </section>
 
 <!-- BEST FOOD ITEMS (Antojos) — ESTRUCTURA REAL Fresheat: swiper horizontal + circleShape giratorio + shapes a AMBOS lados -->
-<section id="antojos" class="best-food-items-section fix section-padding bg-color2">
+<section id="antojos" class="best-food-items-section fix bg-color2 mrfrias-antojos-compact">
   <div class="best-food-wrapper">
     <div class="shape1 float-bob-y d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png" alt="shape"></div>
     <div class="shape2 float-bob-x d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_2.png" alt="shape"></div>
@@ -389,27 +389,20 @@ const html = `<!DOCTYPE html>
         </h2>
         <p class="wow fadeInUp mrfrias-section-sub mrfrias-sub-light" data-wow-delay="0.8s">${h(SITE.sucursales_section.subtitle)}</p>
       </div>
-      <div class="chefe-card-wrap style1 pb-5">
-        <div class="row g-4 justify-content-center">
-          ${SUCURSALES.map((s, i) => `
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.${2 + (i % 5)}s">
-              <div class="chefe-card style1">
-                <div class="chefe-thumb">
-                  <div class="mrfrias-location-thumb">
-                    <i class="fa-sharp fa-solid fa-location-dot"></i>
-                  </div>
-                </div>
-                <div class="chefe-content">
-                  <h3>${h(s.nombre)}</h3>
-                  <p class="mrfrias-sucursal-meta">${h(s.zona)} &nbsp;·&nbsp; <i class="fab fa-whatsapp"></i> ${h(s.telefono_visible)}</p>
-                  <a class="theme-btn mrfrias-sucursal-wa-btn" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
-                    Haz tu pedido aquí <i class="fa-sharp fa-regular fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
+      <div class="mrfrias-suc-grid">
+        ${SUCURSALES.map((s, i) => `
+          <div class="mrfrias-suc-card wow fadeInUp" data-wow-delay="0.${2 + (i % 4)}s">
+            <div class="mrfrias-suc-pill">
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
             </div>
-          `).join('')}
-        </div>
+            <h3 class="mrfrias-suc-nombre">${h(s.nombre)}</h3>
+            <p class="mrfrias-suc-zona">${h(s.zona)}</p>
+            <p class="mrfrias-suc-tel"><i class="fab fa-whatsapp"></i> ${h(s.telefono_visible)}</p>
+            <a class="mrfrias-suc-btn" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
+              HAZ TU PEDIDO AQUÍ <i class="fa-sharp fa-regular fa-arrow-right"></i>
+            </a>
+          </div>
+        `).join('')}
       </div>
       <p class="text-center mt-5 mrfrias-microcopy mrfrias-sub-light">${h(SITE.sucursales_section.microcopy)}</p>
     </div>
@@ -447,7 +440,7 @@ const html = `<!DOCTYPE html>
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
-        <img src="assets/img/mrfrias/nuevas/tres x 1.png" alt="Combo Mr. Frías" class="mrfrias-respiro-img img-fluid">
+        <img src="assets/img/mrfrias/nuevas/salchipapas.png" alt="Combo Mr. Frías" class="mrfrias-respiro-img img-fluid">
       </div>
       <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
         <h2 class="mrfrias-respiro-title">Sabor que resuelve</h2>
@@ -493,26 +486,15 @@ const html = `<!DOCTYPE html>
   </div>
 </div>
 
-<!-- CTA FINAL — Fresheat cta-section + fondo brick + foto hot dog -->
-<section class="cta-section fix mrfrias-cta-brick">
-  <div class="cta-wrapper style1 section-padding mrfrias-cta-final">
-    <div class="container">
-      <div class="cta-wrap style1">
-        <div class="row align-items-center">
-          <div class="col-xl-6 order-2 order-xl-1">
-            <div class="cta-content">
-              <span class="mrfrias-cta-eyebrow wow fadeInUp" data-wow-delay="0.5s">EL ANTOJO NO ESPERA</span>
-              <h2 class="wow fadeInUp mrfrias-cta-title" data-wow-delay="0.7s">${h(SITE.cta_final.title)}</h2>
-              <p class="wow fadeInUp" data-wow-delay="0.8s">${h(SITE.cta_final.body)}</p>
-              <a class="theme-btn wow fadeInUp" data-wow-delay="0.9s" href="#sucursales">${h(SITE.cta_final.cta.label)} <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-xl-6 order-1 order-xl-2">
-            <div class="cta-thumb">
-              <img class="img-fluid float-bob-x mrfrias-cta-img" src="assets/img/mrfrias/nuevas/cta-hotdogs-neon.png" alt="Hot dogs Mr. Frías - Soy adicto a la salchipapa">
-            </div>
-          </div>
-        </div>
+<!-- CTA FINAL -->
+<section class="mrfrias-cta-final-v2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1 wow fadeInUp" data-wow-delay="0.3s">
+        <h2 class="mrfrias-cta-v2-title">¿Ya sabes qué vas a pedir?</h2>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2">
+        <img src="assets/img/mrfrias/nuevas/cta-hotdogs-neon.png" alt="Hot dogs Mr. Frías" class="mrfrias-cta-v2-img">
       </div>
     </div>
   </div>

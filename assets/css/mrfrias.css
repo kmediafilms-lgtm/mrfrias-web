@@ -1134,15 +1134,16 @@
   transform: translateY(-2px);
 }
 
-/* ---------- SUCURSALES estilo chefe-card + fondo brick ---------- */
+/* ---------- SUCURSALES — grid fondo brick rojo oscuro, pills horizontales ---------- */
 .mrfrias-sucursales-brick {
   background-image:
-    linear-gradient(rgba(30, 23, 19, 0.85), rgba(30, 23, 19, 0.85)),
-    url('../img/mrfrias/nuevas/bg-brick-wall.jpg');
+    linear-gradient(rgba(15, 8, 5, 0.82), rgba(15, 8, 5, 0.82)),
+    url('../img/mrfrias/nuevas/bg-brick-wall 1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
+  padding: 5rem 0 4rem;
 }
 
 .mrfrias-sucursales-brick .title-area {
@@ -1154,80 +1155,88 @@
   color: var(--mf-texto-secundario) !important;
 }
 
-/* ---------- SUCURSALES — chefe-card.style1 con location thumb rojo ---------- */
-.chefe-section .chefe-card.style1 .chefe-thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Grid de 3 columnas en desktop */
+.mrfrias-suc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
+@media (max-width: 991px) { .mrfrias-suc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px) { .mrfrias-suc-grid { grid-template-columns: 1fr; } }
 
-.mrfrias-location-thumb {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: var(--mf-rojo);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4.5rem;
-  color: var(--mf-blanco);
-  box-shadow: 0 16px 40px rgba(195, 19, 41, 0.45);
-  border: 6px solid var(--mf-amarillo);
-  flex-shrink: 0;
-}
-
-.chefe-section .chefe-card.style1 .chefe-content {
-  position: static !important;
+/* Card blanca limpia */
+.mrfrias-suc-card {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem 1.75rem;
   text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.mrfrias-suc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgba(195,19,41,0.3);
 }
 
-.chefe-section .chefe-card.style1 .chefe-content h3 {
-  font-size: 1.35rem;
+/* Pill pequeño horizontal con location pin */
+.mrfrias-suc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f3f3f3;
+  border-radius: 999px;
+  padding: 0.35rem 1.1rem;
+  margin-bottom: 1.1rem;
+  font-size: 1.1rem;
+  color: var(--mf-rojo);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrfrias-suc-nombre {
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--mf-rojo);
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.3rem;
   text-transform: none !important;
 }
 
-.mrfrias-sucursal-meta {
-  color: var(--mf-gris);
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
+.mrfrias-suc-zona {
+  color: #888;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
 }
 
-.mrfrias-sucursal-meta .fa-whatsapp {
-  color: #25d366;
+.mrfrias-suc-tel {
+  color: #222;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 1.25rem;
 }
+.mrfrias-suc-tel .fa-whatsapp { color: #25d366; margin-right: 0.3rem; }
 
-/* WhatsApp btn — override template circular positioning */
-.mrfrias-sucursal-wa-btn,
-.mrfrias-body a.mrfrias-sucursal-wa-btn {
-  background: var(--mf-rojo) !important;
-  color: var(--mf-blanco) !important;
-  display: inline-flex !important;
-  width: auto !important;
-  height: auto !important;
-  min-width: 200px;
-  padding: 0.85rem 1.6rem !important;
-  border-radius: 999px !important;
-  position: static !important;
-  transform: none !important;
-  justify-content: center;
+.mrfrias-suc-btn {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  background: var(--mf-rojo);
+  color: #fff;
   font-weight: 800;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
   white-space: nowrap;
-  margin: 0 auto;
-  transition: background 0.25s, color 0.25s;
 }
-
-.mrfrias-sucursal-wa-btn:hover,
-.mrfrias-body a.mrfrias-sucursal-wa-btn:hover {
-  background: var(--mf-amarillo) !important;
-  color: var(--mf-negro) !important;
+.mrfrias-suc-btn:hover {
+  background: var(--mf-amarillo);
+  color: var(--mf-negro);
 }
 
 /* ---------- ACERCA DE NOSOTROS — 2 col foto rectangular + texto bold + marquee ghost ---------- */
@@ -1314,37 +1323,51 @@
   max-width: 340px;
 }
 
-/* ---------- BLOQUE RESPIRO ---------- */
+/* ---------- BLOQUE RESPIRO — fondo oscuro como la referencia neon ---------- */
 .mrfrias-respiro-section {
-  background-image:
-    linear-gradient(135deg, rgba(195, 19, 41, 0.92) 0%, rgba(238, 103, 51, 0.88) 100%),
-    url('../img/bg/offerBG1_1.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 5rem 0;
+  background: #06040200;
+  background: linear-gradient(180deg, #0a0603 0%, #0d0704 100%);
+  padding: 0 0;
   overflow: hidden;
 }
 
+.mrfrias-respiro-section .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mrfrias-respiro-section .row {
+  min-height: 480px;
+  align-items: center;
+}
+
 .mrfrias-respiro-img {
-  max-height: 380px;
+  width: 100%;
+  max-height: 520px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+  display: block;
 }
 
 .mrfrias-respiro-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   font-weight: 900;
   color: var(--mf-blanco);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   margin-bottom: 1rem;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .mrfrias-respiro-sub {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .mrfrias-respiro-title { text-align: center; }
+  .mrfrias-respiro-sub { text-align: center; }
+  .mrfrias-respiro-section .row { min-height: auto; padding: 2rem 0; }
 }
 
 /* Marquee derecha → izquierda con platos en MAYÚSCULAS */
@@ -1409,43 +1432,49 @@
   background-position: center !important;
 }
 
-/* ---------- CTA Final con fondo brick + hot dog ---------- */
-.mrfrias-cta-brick {
-  background-image:
-    linear-gradient(rgba(30, 23, 19, 0.5), rgba(30, 23, 19, 0.5)),
-    url('../img/mrfrias/nuevas/bg-brick-wall.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
+/* ---------- CTA Final v2 — fondo negro puro, imagen grande sin movimiento ---------- */
+.mrfrias-cta-final-v2 {
+  background: #080503;
+  padding: 3rem 0;
+  overflow: hidden;
 }
 
-.mrfrias-cta-brick .mrfrias-cta-final {
-  background: linear-gradient(135deg, rgba(195, 19, 41, 0.92) 0%, rgba(238, 103, 51, 0.92) 100%) !important;
-  background-image: linear-gradient(135deg, rgba(195, 19, 41, 0.92) 0%, rgba(238, 103, 51, 0.92) 100%) !important;
-  backdrop-filter: blur(8px);
+.mrfrias-cta-v2-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--mf-blanco);
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
 }
 
-.mrfrias-cta-img {
-  max-width: 100%;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+.mrfrias-cta-v2-img {
+  width: 100%;
+  max-width: 580px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6));
 }
 
-/* cta-thumb sin fondo blanco — el hot dog transparente se monta sobre el gradient */
-.mrfrias-cta-brick .cta-thumb {
-  background: none !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  padding: 1rem;
-  border-radius: 0;
-  box-shadow: none;
+@media (max-width: 991px) {
+  .mrfrias-cta-v2-title { text-align: center; margin-top: 1.5rem; }
+  .mrfrias-cta-v2-img { max-width: 380px; }
 }
 
-/* Si el template aplica un .cta-thumb::before o background a algún padre directo */
-.mrfrias-cta-brick .cta-thumb *,
-.mrfrias-cta-brick .cta-thumb {
-  background-color: transparent !important;
+/* ---------- Antojos compacto — reducir altura de sección ---------- */
+.mrfrias-antojos-compact {
+  padding: 3rem 0 2rem !important;
 }
 
-.mrfrias-cta-brick .col-xl-6 {
-  background: transparent !important;
+.mrfrias-antojos-compact .title-area {
+  margin-bottom: 1.5rem !important;
+}
+
+.mrfrias-antojos-compact .title-area .title {
+  margin-bottom: 0.4rem !important;
+}
+
+.mrfrias-antojos-compact .btn-wrapper {
+  margin-top: 1.5rem !important;
 }
 
