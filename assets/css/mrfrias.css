@@ -1143,10 +1143,15 @@ body.mrfrias-body { padding-top: 70px; }
 
 /* ---------- Antojos: circle-shape DENTRO de .item-thumb (estructura template original) ---------- */
 
-/* Devolver layout original: card con margin-top:140px, imagen flotando -120px arriba */
+/* Reducir margin-top:140px del template a 80px para compactar la sección */
 .best-food-items-section .single-food-items {
   position: relative;
   text-align: center;
+  margin-top: 80px !important;
+}
+
+.best-food-items-section .single-food-items .item-thumb {
+  margin-top: -60px !important;
 }
 
 /* circle-shape dentro de item-thumb — centrado, gira en loop */
