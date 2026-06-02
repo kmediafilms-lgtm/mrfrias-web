@@ -1147,11 +1147,11 @@ body.mrfrias-body { padding-top: 70px; }
 .best-food-items-section .single-food-items {
   position: relative;
   text-align: center;
-  margin-top: 80px !important;
+  margin-top: 50px !important;
 }
 
 .best-food-items-section .single-food-items .item-thumb {
-  margin-top: -60px !important;
+  margin-top: -40px !important;
 }
 
 /* circle-shape dentro de item-thumb — centrado, gira en loop */
