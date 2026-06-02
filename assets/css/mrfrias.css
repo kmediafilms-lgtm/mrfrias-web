@@ -1063,13 +1063,13 @@ body.mrfrias-body { padding-top: 70px; }
    Para JPG sólidas, aplicar marco redondeado con borde amarillo. */
 .mrfrias-banner-img {
   filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
-  max-height: 600px;
+  max-height: 700px;
   width: auto;
   margin: 0 auto;
   display: block;
 }
 
-/* Banner thumb: container fijo para que las 3 fotos tengan el mismo tamaño visual */
+/* Banner thumb: container fijo para que las fotos tengan el mismo tamaño visual */
 .banner-thumb-area,
 .banner-thumb-area.is-transparent,
 .mrfrias-banner-slide .banner-thumb-area {
@@ -1083,8 +1083,8 @@ body.mrfrias-body { padding-top: 70px; }
   box-shadow: none !important;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 460px;
+  align-items: flex-end;
+  height: 620px;
   width: 100%;
 }
 
@@ -1092,12 +1092,13 @@ body.mrfrias-body { padding-top: 70px; }
   .banner-thumb-area,
   .banner-thumb-area.is-transparent,
   .mrfrias-banner-slide .banner-thumb-area {
-    height: 240px;
+    height: 300px;
     margin-bottom: 1rem;
+    align-items: center;
   }
   .banner-thumb-area .mrfrias-banner-img,
   .mrfrias-banner-slide .mrfrias-banner-img {
-    max-height: 220px !important;
+    max-height: 280px !important;
   }
 }
 
