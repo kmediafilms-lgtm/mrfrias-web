@@ -351,36 +351,32 @@ const html = `<!DOCTYPE html>
   </div>
 </section>
 
-<!-- SUCURSALES — ESTRUCTURA chefe-section del template + fondo ladrillo -->
-<section id="sucursales" class="chefe-section fix section-padding mrfrias-sucursales-brick">
-  <div class="chefe-wrapper style1">
-    <div class="container">
-      <div class="title-area">
-        <div class="sub-title text-center wow fadeInUp" data-wow-delay="0.5s">
-          <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon"> Sucursales <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
-        </div>
-        <h2 class="title wow fadeInUp text-white" data-wow-delay="0.7s">
-          ${h(SITE.sucursales_section.title)}
-        </h2>
-        <p class="wow fadeInUp mrfrias-section-sub mrfrias-sub-light" data-wow-delay="0.8s">${h(SITE.sucursales_section.subtitle)}</p>
-      </div>
-      <div class="mrfrias-suc-grid">
-        ${SUCURSALES.map((s, i) => `
-          <div class="mrfrias-suc-card wow fadeInUp" data-wow-delay="0.${2 + (i % 4)}s">
-            <div class="mrfrias-suc-pill">
-              <i class="fa-sharp fa-solid fa-location-dot"></i>
-            </div>
-            <h3 class="mrfrias-suc-nombre">${h(s.nombre)}</h3>
-            <p class="mrfrias-suc-zona">${h(s.zona)}</p>
-            <p class="mrfrias-suc-tel"><i class="fab fa-whatsapp"></i> ${h(s.telefono_visible)}</p>
-            <a class="mrfrias-suc-btn" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
-              HAZ TU PEDIDO AQUÍ <i class="fa-sharp fa-regular fa-arrow-right"></i>
-            </a>
-          </div>
-        `).join('')}
-      </div>
-      <p class="text-center mt-5 mrfrias-microcopy mrfrias-sub-light">${h(SITE.sucursales_section.microcopy)}</p>
+<!-- SUCURSALES NEON — bricks oscuros, tarjetas con glow amarillo -->
+<section id="sucursales" class="branches-neon-section">
+  <div class="container">
+    <div class="branches-heading">
+      <span class="branches-eyebrow">
+        <i class="fa-solid fa-truck"></i> Pide en tu punto más cercano
+      </span>
+      <h2 class="branches-title">Nuestras sucursales</h2>
+      <div class="branches-heading-line"></div>
     </div>
+    <div class="branches-grid">
+      ${SUCURSALES.map((s, i) => `
+        <article class="branch-card wow fadeInUp" data-wow-delay="0.${2 + (i % 3)}s">
+          <div class="branch-pin">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h3 class="branch-name">${h(s.nombre)}</h3>
+          <p class="branch-area">${h(s.zona)}</p>
+          <p class="branch-phone"><i class="fa-solid fa-phone"></i> ${h(s.telefono_visible)}</p>
+          <a class="branch-button" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
+            Haz tu pedido aquí <i class="fab fa-whatsapp"></i>
+          </a>
+        </article>
+      `).join('')}
+    </div>
+    <p class="branches-microcopy">${h(SITE.sucursales_section.microcopy)}</p>
   </div>
 </section>
 
