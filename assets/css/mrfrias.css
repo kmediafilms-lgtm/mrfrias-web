@@ -1141,72 +1141,26 @@ body.mrfrias-body { padding-top: 70px; }
   opacity: 0.4;
 }
 
-/* ---------- Antojos: centrar circleShape, shapes a ambos lados, botón rojo ---------- */
+/* ---------- Antojos: circle-shape DENTRO de .item-thumb (estructura template original) ---------- */
+
+/* Devolver layout original: card con margin-top:140px, imagen flotando -120px arriba */
 .best-food-items-section .single-food-items {
   position: relative;
-  padding-top: 2rem !important;
+  text-align: center;
 }
 
-.best-food-items-section .single-food-items .circle-shape {
+/* circle-shape dentro de item-thumb — centrado, gira en loop */
+.best-food-items-section .single-food-items .item-thumb .circle-shape {
   position: absolute !important;
-  top: 50% !important;
+  top: -5px !important;
   left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 260px !important;
-  height: 260px !important;
-  z-index: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 1 !important;
   pointer-events: none;
 }
 
-.best-food-items-section .single-food-items .circle-shape img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.best-food-items-section .single-food-items .item-thumb .circle-shape img {
   animation: cir36 20s linear infinite;
-}
-
-/* item-thumb sigue siendo el círculo cortado de la foto */
-.best-food-items-section .single-food-items .item-thumb {
-  position: relative !important;
-  z-index: 2 !important;
-  margin-top: 30px;
-}
-
-/* alinear circle-shape con el item-thumb (no con el slide entero) */
-.best-food-items-section .single-food-items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.best-food-items-section .single-food-items > .circle-shape {
-  top: 250px !important;
-}
-
-/* Shapes a ambos lados (hamburguesa) */
-.best-food-items-section .best-food-wrapper {
-  position: relative;
-}
-
-.mrfrias-shape-right {
-  position: absolute;
-  right: -2%;
-  top: 35%;
-  width: 220px;
-  opacity: 0.6;
-  z-index: 0;
-  pointer-events: none;
-  transform: scaleX(-1);
-}
-
-.mrfrias-shape-left {
-  position: absolute;
-  left: -2%;
-  top: 35%;
-  width: 220px;
-  opacity: 0.6;
-  z-index: 0;
-  pointer-events: none;
 }
 
 /* Botón rojo central 'Pídelo Ahora' — el template aplica max-width:200px al .btn-wrapper */
