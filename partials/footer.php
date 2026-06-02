@@ -1,6 +1,10 @@
 <!-- Footer Mr. Frías -->
-<footer class="mrfrias-footer">
-    <div class="container">
+<footer class="mrfrias-footer" style="position:relative;overflow:hidden;">
+    <img src="assets/img/shape/footerShape1_1.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape1" aria-hidden="true">
+    <img src="assets/img/shape/footerShape1_2.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape2" aria-hidden="true">
+    <img src="assets/img/shape/footerShape1_3.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape3" aria-hidden="true">
+    <img src="assets/img/shape/footerShape1_4.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape4" aria-hidden="true">
+    <div class="container" style="position:relative;z-index:2;">
         <div class="row g-4 mrfrias-footer-top">
             <div class="col-lg-4">
                 <a href="#home" class="mrfrias-footer-logo">
