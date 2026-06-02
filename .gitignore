@@ -3,9 +3,6 @@ node_modules/
 .firecrawl/
 *.log
 
-# Archivos generados
-index.html
-
 # Secrets — NUNCA commitear
 .env
 .env.local
