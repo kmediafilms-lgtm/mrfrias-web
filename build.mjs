@@ -314,7 +314,7 @@ const html = `<!DOCTYPE html>
 <section id="antojos" class="best-food-items-section fix bg-color2 mrfrias-antojos-compact">
   <div class="best-food-wrapper">
     <div class="shape1 float-bob-y d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png" alt="shape"></div>
-    <div class="shape2 float-bob-x d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_2.png" alt="shape"></div>
+    <div class="shape2 float-bob-x d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png" alt="shape"></div>
     <div class="container">
       <div class="title-area">
         <div class="sub-title text-center wow fadeInUp" data-wow-delay="0.5s">
