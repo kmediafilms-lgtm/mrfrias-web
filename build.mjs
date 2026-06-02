@@ -274,7 +274,7 @@ const html = `<!DOCTYPE html>
               <div class="banner-container">
                 <div class="container">
                   <div class="row align-items-center">
-                    <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <div class="col-12 col-lg-6 order-1 order-lg-1">
                       <div class="banner-title-area">
                         <div class="banner-style1">
                           <div class="section-title">
@@ -291,7 +291,7 @@ const html = `<!DOCTYPE html>
                         </div>
                       </div>
                     </div>
-                    <div class="col-12 col-lg-6 order-1 order-lg-2">
+                    <div class="col-12 col-lg-6 order-2 order-lg-2">
                       <div class="banner-thumb-area is-transparent" data-animation="slideInRight" data-duration="2s" data-delay=".9s">
                         <img src="assets/img/mrfrias/${h(slide.img)}" alt="${h(slide.title)}" class="mrfrias-banner-img">
                       </div>

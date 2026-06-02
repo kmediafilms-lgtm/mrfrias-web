@@ -135,12 +135,29 @@
   gap: 0.5rem;
   border: none;
   text-decoration: none;
+  overflow: hidden;
+}
+
+/* Eliminar pseudo-elementos amarillos del template (::before y ::after de hover effect) */
+.mrfrias-body .theme-btn::before,
+.mrfrias-body .theme-btn::after,
+.mrfrias-body a.theme-btn::before,
+.mrfrias-body a.theme-btn::after {
+  display: none !important;
+}
+
+/* Eliminar fondo blanco que el template pone en los iconos dentro de botones */
+.mrfrias-body .theme-btn i,
+.mrfrias-body a.theme-btn i {
+  background: none !important;
+  padding: 0 !important;
+  color: inherit !important;
 }
 
 .mrfrias-body .theme-btn:hover,
 .theme-btn:hover {
-  background: var(--mf-naranja);
-  color: var(--mf-blanco);
+  background: var(--mf-naranja) !important;
+  color: var(--mf-blanco) !important;
   transform: translateY(-2px);
 }
 
