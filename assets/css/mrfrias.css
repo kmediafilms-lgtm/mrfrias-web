@@ -1113,12 +1113,21 @@ body.mrfrias-body { padding-top: 70px; }
   .banner-thumb-area,
   .banner-thumb-area.is-transparent,
   .mrfrias-banner-slide .banner-thumb-area {
-    height: 320px;
-    margin-bottom: 1rem;
+    height: 260px;
+    margin-bottom: 0;
+    margin-top: 1rem;
   }
   .banner-thumb-area .mrfrias-banner-img,
   .mrfrias-banner-slide .mrfrias-banner-img {
-    max-height: 300px !important;
+    max-height: 240px !important;
+  }
+  /* Padding del texto en mobile */
+  .banner-section .banner-title-area {
+    padding-top: 2rem;
+    text-align: center;
+  }
+  .mrfrias-hero-btns {
+    justify-content: center;
   }
 }
 
