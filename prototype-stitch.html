@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mr. Frías — Prototipo Stitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a09;
+  --bg-card:#161310;
+  --bg-card-2:#1f1a16;
+  --line:#3a2d22;
+  --line-strong:#5a4632;
+  --orange:#ff7a1a;
+  --orange-glow:#ffb155;
+  --yellow:#f9c400;
+  --yellow-bright:#fcd534;
+  --red:#dc2626;
+  --text:#f6efe7;
+  --text-dim:#c9bfb5;
+  --text-mute:#8a7d70;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{
+  background-image:
+    radial-gradient(1200px 600px at 30% -10%, rgba(255,122,26,.10), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(249,196,0,.05), transparent 60%),
+    url('assets/img/mrfrias/nuevas/bg-brick-wall 1.jpg');
+  background-size:auto, auto, 800px;
+  background-position:center top, center, center;
+  background-attachment:fixed, fixed, fixed;
+  background-blend-mode:normal, normal, multiply;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+
+/* HEADER */
+header.site{position:sticky;top:0;z-index:50;background:rgba(11,10,9,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.5px}
+.brand .logo{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Inter';font-size:18px;color:#fff;box-shadow:0 0 24px rgba(255,122,26,.4)}
+.nav ul{list-style:none;display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav ul a{color:var(--text-dim);transition:color .2s}
+.nav ul a:hover, .nav ul a.active{color:var(--yellow-bright)}
+.cta-pill{background:var(--yellow-bright);color:#1a1208;padding:11px 18px;border-radius:999px;font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center;transition:transform .15s, box-shadow .2s}
+.cta-pill:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(252,213,52,.35)}
+
+/* GRID 2 COLS (main + sidebar) */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;padding:32px 0 80px}
+@media (max-width:1100px){.layout{grid-template-columns:1fr;gap:24px}}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.55)),url('assets/img/mrfrias/nuevas/brick-wall 2.jpg') center/cover;border-radius:24px;padding:48px 40px;overflow:hidden;border:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 75% 50%, rgba(255,122,26,.25), transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;position:relative;z-index:2}
+@media (max-width:780px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero{padding:32px 24px}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:.5px;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.5)}
+.hero p.lead{margin-top:18px;color:var(--text-dim);max-width:480px;font-size:16px}
+.hero-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:780px){.hero-cta{justify-content:center}}
+.btn-yellow{background:var(--yellow-bright);color:#1a1208;padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center;transition:transform .15s, box-shadow .2s}
+.btn-yellow:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(252,213,52,.4)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;font-size:14px}
+.btn-ghost:hover{border-color:var(--orange-glow);color:var(--orange-glow)}
+.hero-art{position:relative;height:340px}
+.hero-art img{position:absolute;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.hero-art .burger{width:280px;top:0;right:0;z-index:3}
+.hero-art .hotdog{width:200px;left:0;top:60px;z-index:2;transform:rotate(-8deg)}
+.hero-art .wrap{width:180px;right:140px;bottom:0;z-index:1;transform:rotate(6deg)}
+
+/* SECTION TITLE */
+.section-title{text-align:center;margin:64px 0 32px}
+.section-title .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-bright);color:#1a1208;padding:4px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.section-title h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);letter-spacing:.5px;color:#fff}
+.section-title p{color:var(--text-dim);max-width:560px;margin:10px auto 0;font-size:15px}
+
+/* ANTOJOS GRID 4 */
+.antojos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:900px){.antojos-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.antojos-grid{grid-template-columns:1fr}}
+.antojo-card{background:linear-gradient(180deg,#1a140f,#0e0b09);border:2px solid var(--orange);border-radius:18px;padding:18px 16px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;transition:transform .2s, box-shadow .2s}
+.antojo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(255,122,26,.25)}
+.antojo-card .thumb{width:128px;height:128px;border-radius:50%;background:#0a0807;display:flex;align-items:center;justify-content:center;margin-bottom:14px;overflow:hidden;border:3px solid rgba(255,122,26,.3)}
+.antojo-card .thumb img{width:100%;height:100%;object-fit:cover}
+.antojo-card h3{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:.5px}
+.antojo-card .desc{color:var(--text-mute);font-size:12px;margin:6px 0 14px;min-height:32px}
+.antojo-card .pedir{background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:8px 18px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;border:none;cursor:pointer;transition:background .2s}
+.antojo-card .pedir:hover{background:#b91c1c}
+
+/* SUCURSALES GRID 6 */
+.sucursales-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media (max-width:780px){.sucursales-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.sucursales-grid{grid-template-columns:1fr}}
+.suc-card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;transition:border-color .2s,transform .2s}
+.suc-card:hover{border-color:var(--orange);transform:translateY(-2px)}
+.suc-card .pin{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
+.suc-card h4{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:.5px}
+.suc-card .tel{font-size:12px;color:var(--text-mute)}
+.suc-card .wa{background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:7px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.suc-card .wa:hover{background:#b91c1c}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:90px;align-self:start}
+@media (max-width:1100px){.sidebar{position:static}}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.card h3{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--yellow-bright);letter-spacing:.5px;margin-bottom:12px}
+.card p{color:var(--text-dim);font-size:13px}
+.card.about p{margin-bottom:8px}
+.about-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.about-imgs img{aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.gallery-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.gallery-imgs img{aspect-ratio:1;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.horario-card{border:1px solid var(--red);background:linear-gradient(180deg,#1c0f0f,#150a0a)}
+.horario-card h3{color:#fff;text-align:center}
+.horario-card p{text-align:center;font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* CTA FINAL */
+.cta-final{background:linear-gradient(135deg,rgba(220,38,38,.15),rgba(255,122,26,.10));border:1px solid var(--orange);border-radius:18px;padding:32px;text-align:center;margin-top:32px}
+.cta-final h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:.5px;margin-bottom:8px}
+.cta-final p{color:var(--text-dim);margin-bottom:18px}
+
+/* FOOTER */
+footer.site{background:#070605;border-top:1px solid var(--line);padding:40px 0 24px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+@media (max-width:780px){.footer-grid{grid-template-columns:1fr;gap:20px;text-align:center}}
+.footer-grid h5{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow-bright);letter-spacing:.5px;margin-bottom:10px}
+.footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-dim)}
+.footer-grid a:hover{color:var(--orange-glow)}
+.footer-bottom{border-top:1px solid var(--line);padding-top:16px;margin-top:24px;font-size:12px;color:var(--text-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.socials{display:flex;gap:10px;justify-content:center;margin-top:8px}
+.socials a{width:34px;height:34px;border-radius:50%;background:#1a140f;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text-dim);transition:all .2s}
+.socials a:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+/* utilities */
+.eyebrow-tag{display:inline-block;background:var(--yellow-bright);color:#1a1208;font-size:10px;font-weight:800;letter-spacing:1.5px;padding:3px 10px;border-radius:999px;text-transform:uppercase;margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <nav class="nav">
+      <a href="#home" class="brand"><span class="logo">MF</span>Mr. Frías</a>
+      <ul>
+        <li><a href="#home" class="active">Inicio</a></li>
+        <li><a href="#antojos">Antojos</a></li>
+        <li><a href="#sucursales">Sucursales</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#horario">Horario</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Mr.%20Fr%C3%ADas." class="cta-pill" target="_blank" rel="noopener">Pedí por WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <main>
+
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-grid">
+          <div>
+            <h1>Street food panameño<br>para cuando el antojo<br>no perdona</h1>
+            <p class="lead">Carne sellada, pan suave, antojo resuelto en cada mordida.</p>
+            <div class="hero-cta">
+              <a href="#sucursales" class="btn-yellow">Pedí por WhatsApp →</a>
+              <a href="#sucursales" class="btn-ghost">Ver sucursales</a>
+            </div>
+          </div>
+          <div class="hero-art">
+            <img class="hotdog" src="assets/img/stitch/hotdog-transparente.png" alt="">
+            <img class="burger" src="assets/img/stitch/hamburguesa-armandose.png" alt="">
+            <img class="wrap" src="assets/img/stitch/wrap.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <!-- ANTOJOS -->
+      <section id="antojos">
+        <div class="section-title">
+          <span class="eyebrow">★ BEST FOOD ★</span>
+          <h2>Nuestros antojos más pedidos</h2>
+          <p>De la salchipapa al hot dog, aquí todo viene cargado, sabroso y listo para resolver el hambre.</p>
+        </div>
+        <div class="antojos-grid">
+          <article class="antojo-card">
+            <div class="thumb"><img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_24_am.800x725.jpeg" alt=""></div>
+            <h3>Salchipapa</h3>
+            <p class="desc">Cargadas, sabrosas, imposibles de soltar.</p>
+            <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20una%20salchipapa." class="pedir" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="antojo-card">
+            <div class="thumb"><img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_26_am.800x725.jpeg" alt=""></div>
+            <h3>Hot Dog</h3>
+            <p class="desc">Con flow de food truck. Salsas, toppings y carácter.</p>
+            <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20un%20hot%20dog." class="pedir" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="antojo-card">
+            <div class="thumb"><img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_21_am_1.800x725.jpeg" alt=""></div>
+            <h3>Burger</h3>
+            <p class="desc">Carne sellada, pan suave, antojo resuelto.</p>
+            <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20una%20burger." class="pedir" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="antojo-card">
+            <div class="thumb"><img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_23_am.800x725.jpeg" alt=""></div>
+            <h3>Burrito</h3>
+            <p class="desc">Liviano sin perder sabor. Perfecto para fitness.</p>
+            <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20un%20burrito." class="pedir" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- SUCURSALES -->
+      <section id="sucursales">
+        <div class="section-title">
+          <span class="eyebrow">★ DÓNDE ESTAMOS ★</span>
+          <h2>Sucursales cerca de ti</h2>
+          <p>Selecciona dónde quieres pedir y escríbenos directo. Fácil, rápido y sin vueltas.</p>
+        </div>
+        <div class="sucursales-grid">
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>Nuevo Arraiján</h4>
+            <span class="tel">6571-6825</span>
+            <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20Nuevo%20Arraij%C3%A1n." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>Nuevo Chorrillo</h4>
+            <span class="tel">6405-1426</span>
+            <a href="https://wa.me/50764051426?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20Nuevo%20Chorrillo." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>Costa Verde</h4>
+            <span class="tel">6197-6274</span>
+            <a href="https://wa.me/50761976274?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20Costa%20Verde." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>Calle 50</h4>
+            <span class="tel">6659-8463</span>
+            <a href="https://wa.me/50766598463?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20Calle%2050." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>La Mitra</h4>
+            <span class="tel">6365-8894</span>
+            <a href="https://wa.me/50763658894?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20La%20Mitra." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+          <article class="suc-card">
+            <div class="pin">📍</div>
+            <h4>Arraiján Cabecera</h4>
+            <span class="tel">6591-3124</span>
+            <a href="https://wa.me/50765913124?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar%20en%20la%20sucursal%20de%20Arraij%C3%A1n%20Cabecera." class="wa" target="_blank" rel="noopener">Pedir aquí</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <div class="cta-final">
+        <h3>¿Ya sabes qué vas a pedir?</h3>
+        <p>Elige tu sucursal y escríbenos por WhatsApp. El antojo no se deja esperando.</p>
+        <a href="#sucursales" class="btn-yellow">Pedí por WhatsApp →</a>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="card about">
+        <h3>Acerca de nosotros</h3>
+        <div class="about-imgs">
+          <img src="assets/img/mrfrias/nuevas/about-mesa-gente.jpg" alt="">
+          <img src="assets/img/stitch/combo-hamburguesa.png" alt="">
+        </div>
+        <p>Mr. Frías Food Truck nace de un sueño emprendedor: crear comida rápida con sabor, personalidad y un toque diferente.</p>
+      </div>
+
+      <div class="card" id="galeria">
+        <h3>Mira lo que te espera</h3>
+        <div class="gallery-imgs">
+          <img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_24_am.800x725.jpeg" alt="">
+          <img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_26_am.800x725.jpeg" alt="">
+          <img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_25_am_1.800x725.jpeg" alt="">
+          <img src="assets/img/mrfrias/whatsapp_image_2023-10-11_at_12_34_21_am_2.800x725.jpeg" alt="">
+        </div>
+      </div>
+
+      <div class="card horario-card" id="horario">
+        <h3>Horario</h3>
+        <p>Domingo a miércoles:<br>4:30 p.m. — 11:00 p.m.<br><br>Jueves a sábado:<br>4:30 p.m. — 12:00 a.m.</p>
+      </div>
+
+      <a href="https://wa.me/50765716825?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Mr.%20Fr%C3%ADas." class="btn-yellow" style="justify-content:center" target="_blank" rel="noopener">Pedí por WhatsApp →</a>
+    </aside>
+  </div>
+</div>
+
+<footer class="site" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px"><span class="logo">MF</span>Mr. Frías Food Truck</div>
+        <p style="color:var(--text-dim);font-size:13px;max-width:380px">Street food panameño. Salchipapas, hot dogs, hamburguesas y más. Pide directo por WhatsApp en cualquiera de nuestras 6 sucursales.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/mr.friasfoodtruck/" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.instagram.com/mr.friasfoodtruck/" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#antojos">Antojos</a></li>
+          <li><a href="#sucursales">Sucursales</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#horario">Horario</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:pedido@mrfriasfoodtruck.com">pedido@mrfriasfoodtruck.com</a></li>
+          <li><a href="mailto:robertfrias1995@gmail.com">robertfrias1995@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mr. Frías Food Truck. Todos los derechos reservados.</span>
+      <span>Powered by WE.DO Workspace</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
