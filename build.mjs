@@ -25,7 +25,7 @@ const telMain = activas.length ? activas[0].telefono_visible : '6571-6825';
 const telMainHref = telMain.replace(/-/g, '');
 const waMain = activas.length ? waLink(activas[0].whatsapp_e164, SITE.whatsapp_messages.general) : '#sucursales';
 
-// Slides del banner — 3 fotos transparentes nuevas (con alpha real) sobre fondo brick
+// Slides del banner — fotos transparentes sobre fondo brick
 const heroSlides = [
   {
     sub: 'EL SPOT DE LOS ANTOJOS',
@@ -44,6 +44,12 @@ const heroSlides = [
     title: 'Burger del antojo',
     text: 'Cargadas, sabrosas, imposibles de soltar. El antojo no perdona.',
     img: 'nuevas/hero-burger-vertical.png'
+  },
+  {
+    sub: 'SABOR EN CADA MORDIDA',
+    title: 'Alitas Mr. Frías',
+    text: 'Crujientes, jugosas y bien cargadas. Difícil comer solo una.',
+    img: 'nuevas/Alitas .png'
   }
 ];
 
@@ -259,13 +265,6 @@ const html = `<!DOCTYPE html>
         ${heroSlides.map((slide, i) => `
           <div class="swiper-slide">
             <div class="banner-wrapper style1 bg-img mrfrias-banner-slide">
-              <!-- Shapes flotantes REALES del template Fresheat -->
-              <div class="shape1_1 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_1.svg" alt="shape"></div>
-              <div class="shape1_2 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_2.svg" alt="shape"></div>
-              <div class="shape1_3 d-none d-xxl-block" data-animation="slideInLeft" data-duration="3s" data-delay="2s"><img src="assets/img/shape/bannerShape1_3.svg" alt="shape"></div>
-              <div class="shape1_4 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_4.svg" alt="shape"></div>
-              <div class="shape1_5 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_5.svg" alt="shape"></div>
-              <div class="shape1_6 d-none d-xxl-block cir36"><img src="assets/img/shape/bannerShape1_6.svg" alt="shape"></div>
               <div class="banner-container">
                 <div class="container">
                   <div class="row align-items-center">
