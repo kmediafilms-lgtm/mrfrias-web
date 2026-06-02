@@ -310,17 +310,13 @@ const html = `<!DOCTYPE html>
   </div>
 </section>
 
-<!-- BEST FOOD ITEMS (Antojos) — ESTRUCTURA REAL Fresheat: swiper horizontal + circleShape giratorio + shapes a AMBOS lados -->
+<!-- BEST FOOD ITEMS (Antojos) — circle-shape dentro de item-thumb, sin shapes laterales de pizza -->
 <section id="antojos" class="best-food-items-section fix bg-color2 mrfrias-antojos-compact">
   <div class="best-food-wrapper">
-    <div class="shape1 float-bob-y d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png" alt="shape"></div>
-    <div class="shape2 float-bob-x d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_2.png" alt="shape"></div>
-    <div class="mrfrias-shape-right d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_1.png" alt="shape"></div>
-    <div class="mrfrias-shape-left d-none d-xxl-block"><img src="assets/img/shape/bestFoodItemsShape1_2.png" alt="shape"></div>
     <div class="container">
       <div class="title-area">
         <div class="sub-title text-center wow fadeInUp" data-wow-delay="0.5s">
-          <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon"> Best Food <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
+          <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon"> Especialidades <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
         </div>
         <h2 class="title wow fadeInUp" data-wow-delay="0.7s">
           ${h(SITE.especialidades.title)}
@@ -334,6 +330,9 @@ const html = `<!DOCTYPE html>
               <div class="swiper-slide">
                 <div class="single-food-items">
                   <div class="item-thumb">
+                    <div class="circle-shape">
+                      <img src="assets/img/food-items/circleShape.png" alt="">
+                    </div>
                     <img src="assets/img/mrfrias/${h(item.imagen_base)}.800x725.jpeg" alt="${h(item.nombre)}">
                   </div>
                   <div class="item-content">
