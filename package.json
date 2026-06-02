@@ -1,0 +1,19 @@
+{
+  "name": "mrfrias-web",
+  "version": "1.0.0",
+  "description": "Rebuild del sitio de Mr. Frías Food Truck usando template Fresheat (Envato) + Cloudflare Pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:43481/git/kmediafilms-lgtm/mrfrias-web"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}
