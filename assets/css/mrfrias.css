@@ -596,13 +596,14 @@ body.mrfrias-body { padding-top: 70px; }
   background-position: center bottom !important;
   background-repeat: no-repeat !important;
   background-color: #1E1713;
-  min-height: 820px;
+  min-height: 780px;
 }
 
-/* Asegurar que TODOS los slides tengan exactamente el mismo bg size */
+/* Todos los slides la MISMA altura fija → fondo brick siempre al mismo tamaño */
 .banner-section .swiper-slide,
 .banner-section .swiper-slide .banner-wrapper {
-  min-height: 820px;
+  min-height: 780px;
+  height: 780px !important;
 }
 
 .banner-section .banner-slider {
@@ -617,7 +618,7 @@ body.mrfrias-body { padding-top: 70px; }
 .banner-section .swiper-slide {
   flex-shrink: 0;
   width: 100%;
-  height: auto;
+  height: 780px !important;
 }
 
 /* Sub-title del banner: texto plano naranja como el template (sin pill ni border) */
@@ -1068,7 +1069,7 @@ body.mrfrias-body { padding-top: 70px; }
   display: block;
 }
 
-/* Banner thumb: imagen llena el ancho del col-lg-6, centrada verticalmente */
+/* Banner thumb: altura fija igual al slide. Imagen con object-fit:contain dentro. */
 .banner-thumb-area,
 .banner-thumb-area.is-transparent,
 .mrfrias-banner-slide .banner-thumb-area {
@@ -1083,29 +1084,15 @@ body.mrfrias-body { padding-top: 70px; }
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  min-height: 600px;
+  height: 780px;
   width: 100%;
-}
-
-@media (max-width: 991px) {
-  .banner-thumb-area,
-  .banner-thumb-area.is-transparent,
-  .mrfrias-banner-slide .banner-thumb-area {
-    min-height: 300px;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-  .banner-thumb-area .mrfrias-banner-img,
-  .mrfrias-banner-slide .mrfrias-banner-img {
-    max-height: 320px !important;
-  }
 }
 
 .banner-thumb-area .mrfrias-banner-img,
 .mrfrias-banner-slide .mrfrias-banner-img {
-  width: 100%;
+  max-height: 100%;
   max-width: 100%;
+  width: auto;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 35px 60px rgba(0, 0, 0, 0.7));
@@ -1115,6 +1102,24 @@ body.mrfrias-body { padding-top: 70px; }
   background: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .banner-section .swiper-slide,
+  .banner-section .swiper-slide .banner-wrapper {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .banner-thumb-area,
+  .banner-thumb-area.is-transparent,
+  .mrfrias-banner-slide .banner-thumb-area {
+    height: 320px;
+    margin-bottom: 1rem;
+  }
+  .banner-thumb-area .mrfrias-banner-img,
+  .mrfrias-banner-slide .mrfrias-banner-img {
+    max-height: 300px !important;
+  }
 }
 
 /* El banner-wrapper.style1 del template puede traer padding/border. Eliminarlos. */
