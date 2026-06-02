@@ -410,13 +410,13 @@ const html = `<!DOCTYPE html>
 <section class="mrfrias-respiro-section fix">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
-        <img src="assets/img/mrfrias/nuevas/salchipapas.png" alt="Combo Mr. Frías" class="mrfrias-respiro-img img-fluid">
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
         <h2 class="mrfrias-respiro-title">Sabor que resuelve</h2>
-        <p class="mrfrias-respiro-sub">${h(SITE.brand.tagline)}</p>
+        <p class="mrfrias-respiro-sub">${h(SITE.brand.tagline_corto)}</p>
         <a class="theme-btn" href="#sucursales">Pedir por WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
+        <img src="assets/img/mrfrias/nuevas/salchipapas 2.png" alt="Salchipapas Mr. Frías" class="mrfrias-respiro-img img-fluid">
       </div>
     </div>
   </div>
