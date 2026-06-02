@@ -1063,13 +1063,12 @@ body.mrfrias-body { padding-top: 70px; }
    Para JPG sólidas, aplicar marco redondeado con borde amarillo. */
 .mrfrias-banner-img {
   filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
-  max-height: 900px;
   width: auto;
   margin: 0 auto;
   display: block;
 }
 
-/* Banner thumb: container — 75% más grande que el original (460→805px) */
+/* Banner thumb: imagen llena el ancho del col-lg-6, centrada verticalmente */
 .banner-thumb-area,
 .banner-thumb-area.is-transparent,
 .mrfrias-banner-slide .banner-thumb-area {
@@ -1083,8 +1082,9 @@ body.mrfrias-body { padding-top: 70px; }
   box-shadow: none !important;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 805px;
+  align-items: center;
+  height: 100%;
+  min-height: 600px;
   width: 100%;
 }
 
@@ -1092,21 +1092,20 @@ body.mrfrias-body { padding-top: 70px; }
   .banner-thumb-area,
   .banner-thumb-area.is-transparent,
   .mrfrias-banner-slide .banner-thumb-area {
-    height: 360px;
+    min-height: 300px;
+    height: auto;
     margin-bottom: 1rem;
-    align-items: center;
   }
   .banner-thumb-area .mrfrias-banner-img,
   .mrfrias-banner-slide .mrfrias-banner-img {
-    max-height: 340px !important;
+    max-height: 320px !important;
   }
 }
 
 .banner-thumb-area .mrfrias-banner-img,
 .mrfrias-banner-slide .mrfrias-banner-img {
-  max-height: 100%;
+  width: 100%;
   max-width: 100%;
-  width: auto;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 35px 60px rgba(0, 0, 0, 0.7));
