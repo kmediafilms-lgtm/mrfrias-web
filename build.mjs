@@ -265,6 +265,12 @@ const html = `<!DOCTYPE html>
         ${heroSlides.map((slide, i) => `
           <div class="swiper-slide">
             <div class="banner-wrapper style1 bg-img mrfrias-banner-slide">
+              <!-- shape1_3 eliminado: era la pizza en trazos (bottom center) -->
+              <div class="shape1_1 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_1.svg" alt="shape"></div>
+              <div class="shape1_2 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_2.svg" alt="shape"></div>
+              <div class="shape1_4 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_4.svg" alt="shape"></div>
+              <div class="shape1_5 d-none d-xxl-block" data-animation="slideInLeft" data-duration="2s" data-delay=".3s"><img src="assets/img/shape/bannerShape1_5.svg" alt="shape"></div>
+              <div class="shape1_6 d-none d-xxl-block cir36"><img src="assets/img/shape/bannerShape1_6.svg" alt="shape"></div>
               <div class="banner-container">
                 <div class="container">
                   <div class="row align-items-center">
