@@ -293,8 +293,8 @@ const html = `<!DOCTYPE html>
               <div class="shape1_6 d-none d-xxl-block cir36"><img src="assets/img/shape/bannerShape1_6.svg" alt="shape"></div>
               <div class="banner-container">
                 <div class="container">
-                  <div class="row">
-                    <div class="col-12 col-lg-6">
+                  <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 order-2 order-lg-1">
                       <div class="banner-title-area">
                         <div class="banner-style1">
                           <div class="section-title">
@@ -303,13 +303,16 @@ const html = `<!DOCTYPE html>
                               ? `<h1 class="title mrfrias-banner-title" data-animation="slideInRight" data-duration="2s" data-delay=".5s">${h(SITE.hero.h1)}</h1>`
                               : `<h2 class="title mrfrias-banner-title" data-animation="slideInRight" data-duration="2s" data-delay=".5s">${h(slide.title)}</h2>`}
                             <p class="mrfrias-banner-text" data-animation="slideInRight" data-duration="2s" data-delay=".6s">${h(slide.text)}</p>
-                            <a class="theme-btn" href="#sucursales" data-animation="slideInRight" data-duration="2s" data-delay=".7s">${h(SITE.hero.cta_primary.label)} <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            <div class="mrfrias-hero-btns">
+                              <a class="theme-btn" href="#sucursales" data-animation="slideInRight" data-duration="2s" data-delay=".7s">${h(SITE.hero.cta_primary.label)} <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                              <a class="theme-btn mrfrias-btn-outline d-none d-lg-inline-flex" href="#sucursales" data-animation="slideInRight" data-duration="2s" data-delay=".8s">Ver sucursales <i class="fa-sharp fa-regular fa-location-dot"></i></a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
-                      <div class="banner-thumb-area is-transparent" data-tilt data-animation="slideInRight" data-duration="2s" data-delay=".9s">
+                    <div class="col-12 col-lg-6 order-1 order-lg-2">
+                      <div class="banner-thumb-area is-transparent" data-animation="slideInRight" data-duration="2s" data-delay=".9s">
                         <img src="assets/img/mrfrias/${h(slide.img)}" alt="${h(slide.title)}" class="mrfrias-banner-img">
                       </div>
                     </div>
@@ -347,7 +350,7 @@ const html = `<!DOCTYPE html>
       <div class="slider-area mb-n40">
         <div class="swiper bestFoodItems-slider">
           <div class="swiper-wrapper">
-            ${MENU.map((item, i) => `
+            ${MENU.filter(item => item.destacado !== false).map((item, i) => `
               <div class="swiper-slide">
                 <div class="single-food-items">
                   <div class="item-thumb">
@@ -387,26 +390,19 @@ const html = `<!DOCTYPE html>
         <p class="wow fadeInUp mrfrias-section-sub mrfrias-sub-light" data-wow-delay="0.8s">${h(SITE.sucursales_section.subtitle)}</p>
       </div>
       <div class="chefe-card-wrap style1 pb-5">
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
           ${SUCURSALES.map((s, i) => `
             <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.${2 + (i % 5)}s">
-              <div class="chefe-card style1 mrfrias-sucursal-card-v3">
-                <!-- Silueta superior decorativa (sin foto, solo forma) -->
-                <div class="mrfrias-sucursal-silueta">
-                  <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path d="M0 0 L100 0 L100 30 Q100 60 70 60 L30 60 Q0 60 0 30 Z" fill="currentColor"/>
-                  </svg>
-                  <div class="mrfrias-sucursal-pin">
+              <div class="chefe-card style1">
+                <div class="chefe-thumb">
+                  <div class="mrfrias-location-thumb">
                     <i class="fa-sharp fa-solid fa-location-dot"></i>
                   </div>
                 </div>
-                <div class="mrfrias-sucursal-info">
-                  <p class="mrfrias-sucursal-zona-v2">${h(s.zona)}</p>
-                  <p class="mrfrias-sucursal-tel-v2"><i class="fab fa-whatsapp"></i> ${h(s.telefono_visible)}</p>
-                </div>
                 <div class="chefe-content">
-                  <h3 class="mrfrias-sucursal-name-v2">${h(s.nombre)}</h3>
-                  <a class="theme-btn mrfrias-pedido-btn" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
+                  <h3>${h(s.nombre)}</h3>
+                  <p class="mrfrias-sucursal-meta">${h(s.zona)} &nbsp;·&nbsp; <i class="fab fa-whatsapp"></i> ${h(s.telefono_visible)}</p>
+                  <a class="theme-btn mrfrias-sucursal-wa-btn" href="${waLink(s.whatsapp_e164, s.mensaje_prellenado)}" target="_blank" rel="noopener">
                     Haz tu pedido aquí <i class="fa-sharp fa-regular fa-arrow-right"></i>
                   </a>
                 </div>
@@ -422,7 +418,8 @@ const html = `<!DOCTYPE html>
 
 <!-- ACERCA DE NOSOTROS — Layout 2 col foto rectangular + texto con bold -->
 <section id="nosotros" class="mrfrias-acerca-section">
-  <div class="container">
+  <img src="assets/img/shape/testimonialShape1_1.png" alt="" class="mrfrias-about-shape1" aria-hidden="true">
+  <div class="container" style="position:relative;z-index:2;">
     <div class="row align-items-center g-5">
       <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
         <img src="assets/img/mrfrias/nuevas/about-mesa-gente.jpg" alt="Mesa Mr. Frías con amigos compartiendo comida" class="mrfrias-acerca-img">
@@ -432,18 +429,31 @@ const html = `<!DOCTYPE html>
         <div class="mrfrias-acerca-body wow fadeInUp" data-wow-delay="0.7s">
           ${SITE.about.body_html}
         </div>
-        <div class="btn-wrapper wow fadeInUp mt-4" data-wow-delay="0.9s">
-          <a class="theme-btn" href="#sucursales">PEDIR AHORA <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Marquee gigante semi-transparente — texto enorme rotando, ESTILO IMAGEN ACERCA DE NOSOTROS -->
+  <!-- Marquee gigante semi-transparente — texto enorme rotando -->
   <div class="mrfrias-marquee-ghost">
     <div class="mrfrias-marquee-ghost-inner">
-      <span>SALCHIPAPAS</span><span>·</span><span>HOT DOGS</span><span>·</span><span>HAMBURGUESAS</span><span>·</span><span>ALITAS</span><span>·</span><span>QUESADILLAS</span><span>·</span><span>WRAPS</span><span>·</span><span>DEDITOS</span><span>·</span>
-      <span>SALCHIPAPAS</span><span>·</span><span>HOT DOGS</span><span>·</span><span>HAMBURGUESAS</span><span>·</span><span>ALITAS</span><span>·</span><span>QUESADILLAS</span><span>·</span><span>WRAPS</span><span>·</span><span>DEDITOS</span><span>·</span>
+      <span>SALCHIPAPAS</span><span>·</span><span>HOT DOGS</span><span>·</span><span>HAMBURGUESAS</span><span>·</span><span>ALITAS</span><span>·</span><span>QUESADILLAS</span><span>·</span>
+      <span>SALCHIPAPAS</span><span>·</span><span>HOT DOGS</span><span>·</span><span>HAMBURGUESAS</span><span>·</span><span>ALITAS</span><span>·</span><span>QUESADILLAS</span><span>·</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLOQUE RESPIRO -->
+<section class="mrfrias-respiro-section fix">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
+        <img src="assets/img/mrfrias/nuevas/tres x 1.png" alt="Combo Mr. Frías" class="mrfrias-respiro-img img-fluid">
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+        <h2 class="mrfrias-respiro-title">Sabor que resuelve</h2>
+        <p class="mrfrias-respiro-sub">${h(SITE.brand.tagline)}</p>
+        <a class="theme-btn" href="#sucursales">Pedir por WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
 </section>
@@ -483,20 +493,6 @@ const html = `<!DOCTYPE html>
   </div>
 </div>
 
-<!-- HORARIO -->
-<section id="horario" class="section-padding mrfrias-horario-section">
-  <div class="container">
-    <div class="title-area text-center">
-      <div class="sub-title wow fadeInUp" data-wow-delay="0.5s">
-        <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon"> Estamos Abiertos <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
-      </div>
-      <h2 class="title wow fadeInUp" data-wow-delay="0.7s">${h(SITE.horario.title)}</h2>
-      ${SITE.horario.lineas.map(l => `<p class="mrfrias-horario-line wow fadeInUp">${h(l)}</p>`).join('')}
-      <p class="mrfrias-microcopy mt-3">Llegar con hambre es parte del plan.</p>
-    </div>
-  </div>
-</section>
-
 <!-- CTA FINAL — Fresheat cta-section + fondo brick + foto hot dog -->
 <section class="cta-section fix mrfrias-cta-brick">
   <div class="cta-wrapper style1 section-padding mrfrias-cta-final">
@@ -522,101 +518,16 @@ const html = `<!DOCTYPE html>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="section-padding mrfrias-contacto-section bg-color2">
-  <div class="container">
-    <div class="title-area text-center mb-5">
-      <div class="sub-title wow fadeInUp" data-wow-delay="0.5s">
-        <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon"> Contacto <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
-      </div>
-      <h2 class="title wow fadeInUp" data-wow-delay="0.7s">${h(SITE.contacto.title)}</h2>
-    </div>
-    <div class="row g-5 align-items-stretch">
-      <!-- Formulario de Contacto -->
-      <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
-        <div class="contact-form style2 p-4 p-md-5 bg-white rounded-3 shadow-sm">
-          <h3 class="mb-4 text-dark font-weight-bold">Escríbenos</h3>
-          <form class="row g-3" id="contact-form" action="mailer.php" method="POST">
-            <div class="col-md-6">
-              <input type="text" name="name" id="name" placeholder="Nombre completo" required class="form-control">
-            </div>
-            <div class="col-md-6">
-              <input type="email" name="email" id="email" placeholder="Correo electrónico" required class="form-control">
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="phone" id="phone" placeholder="Teléfono" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="subject" id="subject" placeholder="Asunto" class="form-control">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" placeholder="Escribe tu mensaje aquí..." rows="5" required class="form-control"></textarea>
-            </div>
-            <div class="col-12 form-group mb-0 mt-3">
-              <button type="submit" class="theme-btn w-100 justify-content-center">
-                ENVIAR MENSAJE 
-                <i class="fa-sharp fa-regular fa-arrow-right-long bg-transparent text-white ms-2"></i>
-              </button>
-            </div>
-          </form>
-          <div id="form-messages" class="mt-3"></div>
-        </div>
-      </div>
-      <!-- Información de Contacto -->
-      <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
-        <div class="contact-info-wrapper p-4 p-md-5 h-100 bg-white rounded-3 shadow-sm d-flex flex-column justify-content-between">
-          <div>
-            <h3 class="mb-4 text-dark font-weight-bold">Información</h3>
-            <div class="contact-info-list">
-              <div class="d-flex align-items-start mb-4">
-                <div class="icon me-3 mt-1 text-danger" style="font-size: 1.5rem;">
-                  <i class="fal fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <h5 class="text-dark mb-1 font-weight-bold">Ubicaciones</h5>
-                  <p class="text-muted mb-0">Panamá Oeste & Ciudad de Panamá</p>
-                </div>
-              </div>
-              <div class="d-flex align-items-start mb-4">
-                <div class="icon me-3 mt-1 text-danger" style="font-size: 1.5rem;">
-                  <i class="fal fa-envelope"></i>
-                </div>
-                <div>
-                  <h5 class="text-dark mb-1 font-weight-bold">Correo Electrónico</h5>
-                  ${SITE.contacto.emails.map(e => `<p class="mb-0"><a href="mailto:${h(e)}" class="text-muted">${h(e)}</a></p>`).join('')}
-                </div>
-              </div>
-              <div class="d-flex align-items-start mb-4">
-                <div class="icon me-3 mt-1 text-danger" style="font-size: 1.5rem;">
-                  <i class="fal fa-clock"></i>
-                </div>
-                <div>
-                  <h5 class="text-dark mb-1 font-weight-bold">Horarios de Atención</h5>
-                  ${SITE.horario.lineas.map(l => `<p class="text-muted mb-0">${h(l)}</p>`).join('')}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="mt-4">
-            <h5 class="text-dark mb-3 font-weight-bold">Síguenos en Redes</h5>
-            <div class="social-icons d-flex gap-3">
-              ${SITE.contacto.redes.instagram ? `<a href="${h(SITE.contacto.redes.instagram)}" target="_blank" rel="noopener" class="text-danger" style="font-size: 1.8rem;"><i class="fab fa-instagram"></i></a>` : ''}
-              ${SITE.contacto.redes.facebook ? `<a href="${h(SITE.contacto.redes.facebook)}" target="_blank" rel="noopener" class="text-danger" style="font-size: 1.8rem;"><i class="fab fa-facebook-f"></i></a>` : ''}
-              ${SITE.contacto.redes.tiktok ? `<a href="${h(SITE.contacto.redes.tiktok)}" target="_blank" rel="noopener" class="text-danger" style="font-size: 1.8rem;"><i class="fab fa-tiktok"></i></a>` : ''}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 </main>
 
 <!-- FOOTER -->
-<footer class="mrfrias-footer">
-  <div class="container">
+<footer class="mrfrias-footer" style="position:relative;overflow:hidden;">
+  <img src="assets/img/shape/footerShape1_1.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape1" aria-hidden="true">
+  <img src="assets/img/shape/footerShape1_2.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape2" aria-hidden="true">
+  <img src="assets/img/shape/footerShape1_3.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape3" aria-hidden="true">
+  <img src="assets/img/shape/footerShape1_4.png" alt="" class="mrfrias-footer-shape mrfrias-footer-shape4" aria-hidden="true">
+  <div class="container" style="position:relative;z-index:2;">
     <div class="row g-4 mrfrias-footer-top">
       <div class="col-lg-4">
         <a href="#home" class="mrfrias-footer-logo">
